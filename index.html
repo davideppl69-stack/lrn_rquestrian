@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LRN Equestrian — Sport Horses for Sale</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23181818'/%3E%3Ctext x='16' y='22' text-anchor='middle' fill='%23FAFAF8' font-family='Georgia,serif' font-size='14' font-weight='400'%3EL%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23181818'/%3E%3Ctext x='16' y='22' text-anchor='middle' fill='%23FAFAF8' font-family='Georgia,serif' font-size='14'%3EL%3C/text%3E%3C/svg%3E">
 
 <meta property="og:title" content="LRN Equestrian — Sport Horses for Sale">
-<meta property="og:description" content="Carefully selected showjumping prospects. Young and experienced sport horses — buying, producing, selling.">
+<meta property="og:description" content="Handpicked showjumping partners from Romania and Germany. Young and experienced sport horses — buying, producing, selling.">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="LRN Equestrian — Sport Horses for Sale">
-<meta name="twitter:description" content="Carefully selected showjumping prospects from LRN Equestrian.">
+<meta name="twitter:description" content="Handpicked showjumping partners from LRN Equestrian.">
 
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -26,56 +26,45 @@ body{font-family:-apple-system,BlinkMacSystemFont,sans-serif;background:var(--cr
 .icon-heart{width:17px;height:17px;}
 
 header{background:var(--white);border-bottom:2px solid var(--accent);height:72px;display:flex;align-items:center;justify-content:center;position:sticky;top:0;z-index:100;}
-.header-inner{width:100%;max-width:1080px;padding:0 32px;display:flex;align-items:center;justify-content:space-between;}
-.logo{font-family:'Cormorant Garamond',Georgia,serif;font-size:26px;color:var(--primary);letter-spacing:.18em;text-transform:uppercase;}
+.header-inner{width:100%;max-width:1080px;padding:0 32px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.logo{font-family:'Cormorant Garamond',Georgia,serif;font-size:26px;color:var(--primary);letter-spacing:.18em;text-transform:uppercase;cursor:pointer;}
 .logo em{color:var(--accent);font-style:normal;letter-spacing:.12em;}
+.header-actions{display:flex;align-items:center;gap:12px;}
+.shortlist-btn{background:none;border:1px solid var(--border);border-radius:8px;padding:8px 14px;font-size:12px;color:var(--mid);cursor:pointer;font-family:inherit;display:flex;align-items:center;gap:6px;}
+.shortlist-btn:hover{border-color:var(--accent);color:var(--ink);}
+.shortlist-count{background:var(--primary);color:white;font-size:10px;font-weight:600;padding:2px 7px;border-radius:10px;min-width:18px;text-align:center;}
+.shortlist-count.empty{background:var(--border);color:var(--muted);}
 .ig-link{color:var(--mid);display:flex;align-items:center;transition:color .15s;}
 .ig-link:hover{color:var(--ink);}
-.contact-btn{background:var(--primary);color:white;border:none;border-radius:8px;padding:10px 20px;font-size:13px;cursor:pointer;display:flex;align-items:center;gap:8px;text-decoration:none;font-family:inherit;letter-spacing:.02em;}
+.contact-btn{background:var(--primary);color:white;border:none;border-radius:8px;padding:10px 20px;font-size:13px;cursor:pointer;display:flex;align-items:center;gap:8px;text-decoration:none;font-family:inherit;letter-spacing:.02em;white-space:nowrap;}
 .contact-btn:hover{background:#333;}
 
-.ticker{background:var(--primary);overflow:hidden;height:36px;display:flex;align-items:center;}
-.ticker-inner{display:flex;animation:ticker 40s linear infinite;white-space:nowrap;}
-@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.tick-item{font-size:11px;color:rgba(255,255,255,.7);letter-spacing:.06em;padding:0 20px;display:flex;align-items:center;gap:8px;flex-shrink:0;}
-.tick-sold{color:var(--accent);font-weight:600;text-transform:uppercase;font-size:10px;}
-.tick-name{color:white;}
-.tick-country{color:rgba(255,255,255,.45);}
+.hero{max-width:1080px;margin:0 auto;padding:48px 32px 24px;}
+.hero-kicker{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-dark);margin-bottom:12px;}
+h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:48px;font-weight:300;color:var(--primary);line-height:1.1;margin-bottom:14px;}
+.hero-sub{font-size:14px;color:var(--muted);line-height:1.65;max-width:560px;}
 
-.hero{max-width:1080px;margin:0 auto;padding:48px 32px 28px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:24px;}
-.eyebrow{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-dark);display:flex;align-items:center;gap:10px;}
-.eyebrow::before,.eyebrow::after{content:'';display:inline-block;width:22px;height:1px;background:var(--accent);}
-h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:48px;font-weight:300;color:var(--primary);line-height:1.1;}
-.hero-sub{font-size:13px;color:var(--muted);line-height:1.65;max-width:520px;}
-.stats{display:flex;border:1px solid var(--border);border-radius:14px;overflow:hidden;background:white;box-shadow:0 2px 12px rgba(0,0,0,.04);}
-.stat{padding:18px 32px;text-align:center;border-right:1px solid var(--border);}
-.stat:last-child{border-right:none;}
-.stat-num{font-family:'Cormorant Garamond',Georgia,serif;font-size:38px;color:var(--primary);line-height:1;}
-.stat-num.accent{color:var(--accent-dark);}
-.stat-num.grey{color:#bbb;}
-.stat-lbl{font-size:9px;text-transform:uppercase;letter-spacing:.16em;color:var(--muted);margin-top:6px;}
-.stat-click{cursor:pointer;}
-.stat-click:hover{background:#f5f5f5;}
+.section-tabs{max-width:1080px;margin:0 auto;padding:0 32px 28px;display:flex;gap:8px;flex-wrap:wrap;border-bottom:1px solid var(--border);}
+.tab-btn{padding:10px 18px;border:none;background:none;font-size:13px;color:var(--muted);cursor:pointer;font-family:inherit;border-bottom:2px solid transparent;margin-bottom:-1px;transition:color .15s,border-color .15s;display:flex;align-items:center;gap:8px;}
+.tab-btn:hover{color:var(--ink);}
+.tab-btn.on{color:var(--primary);border-bottom-color:var(--primary);font-weight:600;}
+.tab-count{font-size:11px;color:var(--muted);background:var(--accent-bg);padding:2px 8px;border-radius:10px;}
+.tab-btn.on .tab-count{background:var(--primary);color:white;}
 
-.toolbar{max-width:1080px;margin:0 auto;padding:0 32px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
-.level-slider-box{flex:1;background:white;border-radius:14px;padding:16px 20px 12px;box-shadow:0 2px 8px rgba(0,0,0,.05);border:1px solid var(--border);min-width:240px;}
-.level-slider-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px;}
-.level-slider-label{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);}
-.level-slider-val{font-family:Georgia,serif;font-size:22px;color:var(--primary);}
-.level-slider-val .unit{font-size:14px;color:var(--accent-dark);}
-.level-slider{width:100%;accent-color:var(--primary);height:6px;cursor:pointer;}
-.level-slider-marks{display:flex;justify-content:space-between;margin-top:8px;font-size:10px;color:#bbb;}
+.toolbar{max-width:1080px;margin:0 auto;padding:24px 32px;display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.filter-chips{display:flex;gap:6px;flex-wrap:wrap;flex:1;}
+.chip{padding:7px 14px;border-radius:24px;border:1px solid var(--border);background:white;color:var(--mid);font-size:12px;cursor:pointer;transition:all .15s;font-family:inherit;}
+.chip.on,.chip:hover{border-color:var(--primary);background:var(--primary);color:white;}
 .toolbar-right{display:flex;align-items:center;gap:8px;flex-shrink:0;}
 .dropdown{padding:8px 14px;border-radius:8px;border:1px solid var(--border);font-size:12px;color:var(--mid);background:white;cursor:pointer;outline:none;font-family:inherit;}
 .vbtn{width:34px;height:34px;border-radius:8px;border:1px solid var(--border);background:white;color:var(--muted);cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;}
 .vbtn.on{background:var(--primary);border-color:var(--primary);color:white;}
 .vbtn svg{width:16px;height:16px;}
 
-.catalogue{max-width:1080px;margin:0 auto;padding:0 32px 100px;}
+.catalogue{max-width:1080px;margin:0 auto;padding:0 32px 48px;}
 .banner{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;padding:14px 20px;border-radius:10px;flex-wrap:wrap;gap:10px;}
 .banner.accent{background:var(--accent-bg);border:1px solid var(--accent);}
 .banner.bronze{background:#f8f4ee;border:1px solid var(--bronze);}
-.back-btn{font-size:12px;color:var(--primary);background:white;border:1px solid var(--border);padding:6px 14px;border-radius:8px;cursor:pointer;font-family:inherit;}
 
 .list-view{display:flex;flex-direction:column;gap:14px;}
 .hcard{background:white;border-radius:var(--r);display:flex;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.06);cursor:pointer;min-height:180px;position:relative;transition:transform .18s,box-shadow .18s;}
@@ -94,8 +83,8 @@ h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:48px;font-weight:300
 .hcard-bottom{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
 .tags{display:flex;gap:6px;flex-wrap:wrap;}
 .tag{padding:3px 10px;border-radius:20px;border:1px solid var(--border);font-size:11px;color:var(--mid);}
-.view-arrow{padding:8px 14px;background:var(--cream);border:1px solid var(--border);border-radius:8px;font-size:12px;color:var(--primary);white-space:nowrap;transition:all .15s;}
-.hcard:hover .view-arrow{background:var(--primary);color:white;border-color:var(--primary);}
+.view-link{font-size:12px;color:var(--primary);text-decoration:underline;text-underline-offset:3px;}
+.hcard:hover .view-link{color:var(--accent-dark);}
 
 .grid-view{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
 .gcard{background:white;border-radius:var(--r);overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.06);cursor:pointer;position:relative;transition:transform .18s,box-shadow .18s;}
@@ -108,19 +97,18 @@ h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:48px;font-weight:300
 .gcard-meta{font-size:12px;color:var(--mid);margin-bottom:8px;}
 .gcard-price{margin-top:auto;}
 
-.badge{position:absolute;top:10px;left:10px;padding:3px 10px;border-radius:20px;font-size:10px;font-weight:700;letter-spacing:.05em;z-index:2;}
-.b-elite{background:var(--ink);color:var(--bronze);}
-.b-sport-plus{background:var(--primary);color:white;}
-.b-sport{background:var(--accent-dark);color:white;}
-.b-young{background:#8a8278;color:white;}
-.b-amateur{background:#a08870;color:white;}
-.b-cm120{background:#6e6e6e;color:white;}
-.b-cm110{background:#999;color:white;}
-.lease-corner{position:absolute;top:10px;left:10px;background:var(--primary);color:white;font-size:10px;font-weight:700;padding:4px 9px;border-radius:12px;letter-spacing:.03em;z-index:2;text-transform:uppercase;}
-
+.status-badge{position:absolute;top:10px;left:10px;background:var(--primary);color:white;font-size:10px;font-weight:700;padding:4px 9px;border-radius:12px;letter-spacing:.03em;z-index:2;text-transform:uppercase;}
 .heart-btn{position:absolute;top:10px;right:10px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.92);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:3;transition:transform .15s;box-shadow:0 2px 8px rgba(0,0,0,.12);color:var(--mid);}
 .heart-btn:hover{transform:scale(1.12);}
 .heart-btn.saved{color:#8b4558;background:#faf0f2;}
+
+.sold-list,.coming-list{display:flex;flex-direction:column;gap:10px;}
+.sold-row,.coming-row{background:white;border:1px solid var(--border);border-radius:10px;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.sold-row-name,.coming-row-name{font-family:Georgia,serif;font-size:17px;}
+.sold-row-meta,.coming-row-meta{font-size:13px;color:var(--muted);}
+.sold-label{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--accent-dark);font-weight:600;}
+.coming-row-actions{display:flex;align-items:center;gap:12px;}
+.interest-link{font-size:12px;color:var(--primary);text-decoration:underline;text-underline-offset:3px;cursor:pointer;background:none;border:none;font-family:inherit;}
 
 .overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);backdrop-filter:blur(5px);z-index:400;display:flex;align-items:center;justify-content:center;padding:24px;overflow-y:auto;}
 .pbox{background:white;border-radius:20px;max-width:700px;width:100%;max-height:88vh;overflow-y:auto;box-shadow:0 24px 80px rgba(0,0,0,.3);}
@@ -134,7 +122,7 @@ h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:48px;font-weight:300
 .pbreed-clean{font-size:12px;color:var(--muted);margin-top:5px;}
 .pprice-lbl-clean{font-size:10px;color:#bbb;text-transform:uppercase;letter-spacing:.08em;}
 .pprice-clean{font-size:14px;color:var(--primary);margin-top:3px;font-family:Georgia,serif;font-style:italic;}
-.pbody{padding:0 24px 0;}
+.pbody{padding:0 24px;}
 .pspecs{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin:20px 0 22px;}
 .psc{padding:12px 14px;border-right:1px solid var(--border);}
 .psc:last-child{border-right:none;}
@@ -147,29 +135,12 @@ h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:48px;font-weight:300
 .pdesc{font-size:14px;color:var(--mid);line-height:1.75;}
 .pdesc p{margin-bottom:14px;}
 .pdesc p:last-child{margin-bottom:0;}
-
-.timeline{position:relative;}
-.tline{position:absolute;left:19px;top:4px;bottom:4px;width:2px;background:linear-gradient(to bottom,var(--accent) 0%,var(--bronze) 60%,var(--primary) 100%);border-radius:2px;}
-.titem{display:flex;gap:14px;margin-bottom:16px;cursor:pointer;align-items:flex-start;}
-.titem:last-child{margin-bottom:0;}
-.tdot{width:40px;height:40px;border-radius:50%;flex-shrink:0;z-index:1;position:relative;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:var(--accent-dark);transition:all .2s;}
-.ttext{flex:1;padding-top:10px;}
-.tevent{font-size:14px;}
-.tyear{font-family:Georgia,serif;font-size:15px;flex-shrink:0;margin-left:12px;}
-.tdetail{font-size:12px;color:#888;margin-top:3px;line-height:1.5;overflow:hidden;transition:max-height .25s,opacity .2s;}
-.thint{font-size:11px;color:#bbb;margin-top:2px;}
-
-.lease-options{display:flex;gap:10px;margin:18px 0;}
-.lease-opt-box{flex:1;border:1px solid var(--border);border-radius:12px;padding:14px;text-align:center;}
-.lease-opt-box.active{border-color:var(--accent);background:var(--accent-bg);}
-.lease-opt-label{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);}
-.lease-opt-val{font-size:15px;font-weight:600;color:var(--ink);margin-top:4px;}
-.lease-opt-box.active .lease-opt-val{color:var(--accent-dark);}
-
-.xray-btn{display:flex;align-items:center;gap:12px;width:100%;padding:14px 16px;background:var(--accent-bg);border:1px solid var(--accent);border-radius:12px;cursor:pointer;text-align:left;font-family:inherit;transition:all .15s;}
-.xray-btn:hover{background:#ebe4da;}
-.xray-btn-title{font-size:13px;font-weight:600;color:var(--ink);}
-.xray-btn-sub{font-size:11px;color:var(--mid);margin-top:1px;}
+.bg-list{list-style:none;padding:0;}
+.bg-list li{font-size:14px;color:var(--mid);line-height:1.6;padding:8px 0;border-bottom:1px solid var(--border);display:flex;gap:12px;}
+.bg-list li:last-child{border-bottom:none;}
+.bg-year{font-family:Georgia,serif;color:var(--accent-dark);min-width:36px;flex-shrink:0;}
+.vetting-note{font-size:13px;color:var(--mid);line-height:1.6;padding:14px 16px;background:var(--accent-bg);border-radius:10px;border:1px solid var(--accent);}
+.vetting-note a{color:var(--primary);font-weight:500;}
 
 .enquiry{background:var(--cream);border-radius:10px;padding:18px;}
 .einputs{display:flex;gap:8px;margin-bottom:8px;}
@@ -177,7 +148,6 @@ h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:48px;font-weight:300
 .einput:focus{border-color:var(--primary);}
 .esend{width:100%;padding:11px;background:var(--primary);color:white;border:none;border-radius:8px;font-size:14px;cursor:pointer;font-family:inherit;}
 .esend:hover{background:#333;}
-.success-msg{text-align:center;padding:16px 0;color:var(--accent-dark);font-weight:500;font-size:15px;}
 .form-note{font-size:11px;color:var(--muted);margin-top:7px;text-align:center;}
 
 .pcta{padding:18px 24px 24px;display:flex;gap:10px;flex-wrap:wrap;}
@@ -194,58 +164,25 @@ h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:48px;font-weight:300
 .gallery-dot.active{background:white;width:20px;border-radius:4px;}
 .gallery-counter{position:absolute;top:16px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.5);color:white;padding:3px 10px;border-radius:20px;font-size:11px;z-index:4;}
 
-.scout-btn{position:fixed;bottom:28px;right:28px;background:var(--primary);color:white;padding:13px 20px;border-radius:40px;display:flex;align-items:center;gap:10px;cursor:pointer;z-index:200;box-shadow:0 4px 24px rgba(26,26,26,.35);font-size:14px;font-weight:500;border:none;font-family:inherit;letter-spacing:.02em;}
-.scout-btn:hover{transform:scale(1.03);}
-.scout-box{position:fixed;bottom:90px;right:28px;width:360px;max-height:500px;background:white;border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,.2);z-index:300;display:flex;flex-direction:column;overflow:hidden;}
-.scout-header{background:var(--primary);padding:16px 20px;display:flex;align-items:center;justify-content:space-between;}
-.scout-close{background:rgba(255,255,255,.15);border:none;color:white;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;line-height:1;}
-.scout-form{flex:1;overflow-y:auto;padding:18px 16px;background:var(--cream);}
-.scout-q{margin-bottom:20px;}
-.scout-q-label{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:10px;}
-.scout-opts{display:flex;flex-wrap:wrap;gap:7px;}
-.scout-opt{padding:8px 14px;border-radius:20px;border:1px solid var(--border);background:white;color:var(--mid);font-size:12.5px;cursor:pointer;font-family:inherit;transition:all .15s;}
-.scout-opt:hover{border-color:var(--accent);}
-.scout-opt.picked{background:var(--primary);color:white;border-color:var(--primary);}
-.scout-input-area{padding:12px 16px;background:white;border-top:1px solid var(--border);}
-.scout-send{width:100%;padding:13px;background:var(--primary);color:white;border:none;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;}
-.scout-send:hover{background:#333;}
+.need-section{max-width:1080px;margin:0 auto;padding:48px 32px 64px;border-top:1px solid var(--border);}
+.need-inner{background:white;border:1px solid var(--border);border-radius:16px;padding:32px;box-shadow:0 2px 12px rgba(0,0,0,.04);}
+.need-title{font-family:'Cormorant Garamond',Georgia,serif;font-size:28px;font-weight:400;color:var(--primary);margin-bottom:8px;}
+.need-sub{font-size:13px;color:var(--muted);margin-bottom:24px;line-height:1.6;max-width:520px;}
+.need-block{margin-bottom:20px;}
+.need-label{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:10px;}
+.need-opts{display:flex;flex-wrap:wrap;gap:7px;}
+.need-opt{padding:8px 14px;border-radius:20px;border:1px solid var(--border);background:var(--cream);color:var(--mid);font-size:12.5px;cursor:pointer;font-family:inherit;transition:all .15s;}
+.need-opt:hover{border-color:var(--accent);}
+.need-opt.picked{background:var(--primary);color:white;border-color:var(--primary);}
+.need-send{margin-top:8px;padding:13px 28px;background:var(--primary);color:white;border:none;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;}
+.need-send:hover{background:#333;}
 
-.xray-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:2000;display:none;align-items:center;justify-content:center;padding:20px;}
-.xray-overlay.open{display:flex;}
-.xray-modal{background:white;border-radius:18px;padding:24px;max-width:380px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.3);}
-.xray-modal-t{font-size:17px;font-weight:600;margin-bottom:4px;}
-.xray-modal-s{font-size:13px;color:var(--muted);margin-bottom:18px;}
-.xray-choice{display:flex;align-items:center;gap:12px;padding:13px;border:1px solid var(--border);border-radius:12px;margin-bottom:10px;cursor:pointer;transition:all .15s;text-decoration:none;color:inherit;font-family:inherit;width:100%;background:white;}
-.xray-choice:hover{border-color:var(--accent);background:var(--accent-bg);}
-.xray-choice-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:var(--accent-bg);color:var(--primary);}
-.xray-choice-txt{flex:1;text-align:left;}
-.xray-choice-title{font-size:14px;font-weight:600;}
-.xray-choice-sub{font-size:11px;color:var(--muted);margin-top:1px;}
-.xray-close{width:100%;padding:12px;background:none;border:none;color:var(--muted);font-size:13px;cursor:pointer;font-family:inherit;margin-top:4px;}
-.xray-form{display:none;margin-top:12px;}
-.xray-form.show{display:block;}
-.xray-form input{width:100%;padding:12px;border:1px solid var(--border);border-radius:10px;font-size:14px;font-family:inherit;margin-bottom:10px;}
-.xray-form button{width:100%;padding:12px;background:var(--primary);color:white;border:none;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;}
-
-.coming-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(250,250,248,.15);}
-.coming-badge{background:rgba(26,26,26,.88);color:white;padding:6px 16px;border-radius:20px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;}
-.sold-stamp{position:absolute;top:10px;right:10px;background:var(--accent-dark);color:white;padding:4px 11px;border-radius:20px;font-size:10px;font-weight:700;z-index:2;text-transform:uppercase;}
-.notify-btn{margin-top:10px;width:100%;padding:8px;background:var(--primary);color:white;border:none;border-radius:8px;font-size:12px;cursor:pointer;font-family:inherit;}
-
-.saved-bar{position:fixed;bottom:28px;left:50%;transform:translateX(-50%);background:var(--primary);color:white;padding:11px 22px;border-radius:40px;display:flex;align-items:center;gap:14px;font-size:13px;box-shadow:0 4px 20px rgba(26,26,26,.35);z-index:190;}
-.saved-bar-btn{background:rgba(255,255,255,.15);border:none;color:white;padding:6px 14px;border-radius:20px;font-size:12px;cursor:pointer;font-family:inherit;}
-.compare-table{width:100%;border-collapse:collapse;font-size:13px;background:white;border-radius:12px;overflow:hidden;}
-.compare-table th{background:var(--cream);padding:14px 12px;text-align:left;font-weight:600;font-size:12px;color:var(--primary);border-bottom:2px solid var(--border);}
-.compare-table th.spec-label-col{width:120px;color:var(--muted);font-weight:400;text-transform:uppercase;letter-spacing:.06em;font-size:10px;}
-.compare-table td{padding:12px;border-bottom:1px solid var(--border);vertical-align:top;}
-.compare-table tr:last-child td{border-bottom:none;}
-.compare-row-label{font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);}
-.compare-remove{background:none;border:none;color:#a05050;cursor:pointer;font-size:11px;text-decoration:underline;font-family:inherit;}
-.compare-initials{height:80px;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',Georgia,serif;font-size:28px;color:rgba(26,26,26,.3);background:var(--cream);border-radius:8px;}
+.empty-state{text-align:center;padding:48px 24px;color:var(--muted);font-size:14px;line-height:1.6;}
+.empty-state a{color:var(--primary);}
 
 @media(max-width:1024px) and (min-width:701px){
   .grid-view{grid-template-columns:repeat(3,1fr);}
-  .catalogue,.toolbar,.hero,.header-inner{padding-left:24px;padding-right:24px;}
+  .catalogue,.toolbar,.hero,.header-inner,.section-tabs,.need-section{padding-left:24px;padding-right:24px;}
   h1{font-size:42px;}
 }
 @media(max-width:700px){
@@ -253,28 +190,25 @@ h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:48px;font-weight:300
   .logo{font-size:20px;}
   .header-inner{padding:0 14px;}
   .contact-btn{padding:8px 12px;font-size:11px;}
-  .ticker{height:32px;}
-  .tick-item{font-size:10px;padding:0 14px;}
+  .shortlist-btn{padding:6px 10px;font-size:11px;}
   .hcard{flex-direction:column;}
   .hcard-photo{width:100%;min-width:unset;height:220px;}
   .grid-view{grid-template-columns:repeat(2,1fr);gap:10px;}
   h1{font-size:30px;}
-  .hero{padding:28px 16px 20px;gap:16px;}
-  .toolbar{flex-direction:column;align-items:stretch;padding:0 16px 20px;}
-  .toolbar-right{width:100%;padding:0;}
+  .hero{padding:28px 16px 20px;}
+  .section-tabs{padding:0 16px 20px;}
+  .toolbar{flex-direction:column;padding:20px 16px;}
+  .filter-chips{width:100%;}
+  .toolbar-right{width:100%;}
   .dropdown{flex:1;}
-  .catalogue{padding:0 16px 100px;}
+  .catalogue{padding:0 16px 32px;}
   .pspecs{grid-template-columns:1fr 1fr;}
   .einputs{flex-direction:column;}
-  .scout-box{width:calc(100vw - 24px);right:12px;left:12px;bottom:80px;}
-  .scout-btn{bottom:20px;right:16px;padding:11px 16px;font-size:13px;}
-  .stats{width:100%;}
-  .stat{flex:1;padding:14px 8px;}
-  .stat-num{font-size:30px;}
+  .need-section{padding:32px 16px 48px;}
+  .need-inner{padding:24px 20px;}
   .overlay{padding:0;align-items:flex-end;}
   .pbox{max-height:94vh;border-radius:20px 20px 0 0;}
   .pphoto-clean{height:300px;}
-  .saved-bar{bottom:80px;width:calc(100vw - 32px);justify-content:center;flex-wrap:wrap;}
 }
 @media(max-width:380px){
   .grid-view{grid-template-columns:1fr;}
@@ -286,40 +220,38 @@ h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:48px;font-weight:300
 
 <header>
   <div class="header-inner">
-    <div style="display:flex;align-items:center;gap:12px;cursor:pointer;" onclick="goHome()">
-      <svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="4" fill="#1A1A1A"/><text x="16" y="22" text-anchor="middle" fill="#FAFAF8" font-family="Georgia,serif" font-size="14">L</text></svg>
-      <span class="logo">LRN <em>Equestrian</em></span>
-    </div>
-    <div style="display:flex;align-items:center;gap:14px;">
+    <div class="logo" onclick="goHome()">LRN <em>Equestrian</em></div>
+    <div class="header-actions">
+      <button class="shortlist-btn" onclick="showShortlist()" aria-label="View shortlist">
+        Shortlist <span class="shortlist-count empty" id="shortlistCount">0</span>
+      </button>
       <a href="https://www.instagram.com/lrn_equestrian" target="_blank" rel="noopener" class="ig-link" title="Instagram">
         <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
       </a>
-      <a href="#" id="headerContact" class="contact-btn">Contact Us</a>
+      <a href="#" id="headerContact" class="contact-btn">Contact</a>
     </div>
   </div>
 </header>
 
-<div class="ticker"><div class="ticker-inner" id="ticker"></div></div>
-
 <div class="hero">
-  <div class="eyebrow">Official Horse Sales Catalogue</div>
-  <h1>Horse Catalogue</h1>
-  <p class="hero-sub">Carefully selected showjumping prospects. Young and experienced sport horses — personally produced and matched to their next rider.</p>
-  <div class="stats">
-    <div class="stat stat-click" onclick="goHome()"><div class="stat-num" id="availCount">0</div><div class="stat-lbl">Available Now</div></div>
-    <div class="stat stat-click" onclick="showSold()"><div class="stat-num accent" id="soldCount">0</div><div class="stat-lbl">Sold</div></div>
-    <div class="stat stat-click" onclick="showComing()"><div class="stat-num grey" id="comingCount">0</div><div class="stat-lbl">Coming Soon</div></div>
-  </div>
+  <div class="hero-kicker">LRN Sport Horses</div>
+  <h1>Horses for sale</h1>
+  <p class="hero-sub">Handpicked showjumping partners from Romania and Germany. Young and experienced sport horses — carefully produced and matched to their next rider.</p>
+</div>
+
+<div class="section-tabs" id="sectionTabs">
+  <button class="tab-btn on" data-mode="sale" onclick="setMode('sale',this)">For sale <span class="tab-count" id="saleTabCount">0</span></button>
+  <button class="tab-btn" data-mode="sold" onclick="setMode('sold',this)">Sold <span class="tab-count" id="soldTabCount">0</span></button>
+  <button class="tab-btn" data-mode="coming" onclick="setMode('coming',this)">Arriving soon <span class="tab-count" id="comingTabCount">0</span></button>
 </div>
 
 <div class="toolbar" id="toolbar">
-  <div class="level-slider-box">
-    <div class="level-slider-top">
-      <span class="level-slider-label">Jump Level</span>
-      <span class="level-slider-val"><span id="sliderVal">All levels</span></span>
-    </div>
-    <input type="range" min="0" max="5" step="1" value="0" id="levelSlider" class="level-slider" oninput="onSliderInput(this.value)">
-    <div class="level-slider-marks"><span>All</span><span>1.10</span><span>1.20</span><span>1.30</span><span>1.40</span><span>1.50+</span></div>
+  <div class="filter-chips" id="filterChips">
+    <button class="chip on" data-filter="all" onclick="setLevelFilter('all',this)">All</button>
+    <button class="chip" data-filter="young" onclick="setLevelFilter('young',this)">Young horses</button>
+    <button class="chip" data-filter="110120" onclick="setLevelFilter('110120',this)">1.10–1.20m</button>
+    <button class="chip" data-filter="130" onclick="setLevelFilter('130',this)">1.30m</button>
+    <button class="chip" data-filter="140plus" onclick="setLevelFilter('140plus',this)">1.40m+</button>
   </div>
   <div class="toolbar-right">
     <select class="dropdown" id="sortSel" onchange="applyFilters()">
@@ -343,76 +275,35 @@ h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:48px;font-weight:300
   <div id="horseGrid"></div>
 </div>
 
+<section class="need-section" id="needSection">
+  <div class="need-inner">
+    <h2 class="need-title">What are you looking for?</h2>
+    <p class="need-sub">Tell us about your ideal horse and we will reply personally with suitable matches from our network.</p>
+    <div class="need-block">
+      <div class="need-label">Jump level</div>
+      <div class="need-opts" id="needLevel">
+        <button class="need-opt" onclick="pickNeed('level','1.10-1.20m',this)">1.10–1.20m</button>
+        <button class="need-opt" onclick="pickNeed('level','1.30m',this)">1.30m</button>
+        <button class="need-opt" onclick="pickNeed('level','1.40m+',this)">1.40m+</button>
+        <button class="need-opt" onclick="pickNeed('level','Young horse',this)">Young horse</button>
+        <button class="need-opt" onclick="pickNeed('level','Not sure',this)">Not sure</button>
+      </div>
+    </div>
+    <div class="need-block">
+      <div class="need-label">Rider type</div>
+      <div class="need-opts" id="needRider">
+        <button class="need-opt" onclick="pickNeed('rider','Professional',this)">Professional</button>
+        <button class="need-opt" onclick="pickNeed('rider','Amateur',this)">Amateur</button>
+        <button class="need-opt" onclick="pickNeed('rider','Junior',this)">Junior</button>
+        <button class="need-opt" onclick="pickNeed('rider','Young rider',this)">Young rider</button>
+      </div>
+    </div>
+    <button class="need-send" onclick="sendNeedEnquiry()">Email us</button>
+  </div>
+</section>
+
 <div class="overlay" id="profileOverlay" style="display:none;" onclick="if(event.target===this)closeProfile()">
   <div class="pbox" id="profileBox"></div>
-</div>
-
-<button class="scout-btn" onclick="toggleScout()">Ask Our Expert</button>
-
-<div class="scout-box" id="scoutBox" style="display:none;">
-  <div class="scout-header">
-    <div>
-      <div style="color:white;font-weight:600;font-size:14px;">Find Your Horse</div>
-      <div style="color:rgba(255,255,255,.6);font-size:11px;">Tell us what you are looking for</div>
-    </div>
-    <button class="scout-close" onclick="toggleScout()" aria-label="Close">&#215;</button>
-  </div>
-  <div class="scout-form">
-    <div class="scout-q">
-      <div class="scout-q-label">What level are you looking for?</div>
-      <div class="scout-opts">
-        <button class="scout-opt" onclick="pickOpt('level','1.10-1.20m',this)">1.10-1.20m</button>
-        <button class="scout-opt" onclick="pickOpt('level','1.30m',this)">1.30m</button>
-        <button class="scout-opt" onclick="pickOpt('level','1.40m+',this)">1.40m+</button>
-        <button class="scout-opt" onclick="pickOpt('level','Young horse',this)">Young horse</button>
-        <button class="scout-opt" onclick="pickOpt('level','Not sure',this)">Not sure</button>
-      </div>
-    </div>
-    <div class="scout-q">
-      <div class="scout-q-label">Rider type?</div>
-      <div class="scout-opts">
-        <button class="scout-opt" onclick="pickOpt('rider','Professional',this)">Professional</button>
-        <button class="scout-opt" onclick="pickOpt('rider','Amateur',this)">Amateur</button>
-        <button class="scout-opt" onclick="pickOpt('rider','Junior',this)">Junior</button>
-        <button class="scout-opt" onclick="pickOpt('rider','Young rider',this)">Young rider</button>
-      </div>
-    </div>
-  </div>
-  <div class="scout-input-area">
-    <button class="scout-send" onclick="sendScoutEnquiry()">Send Enquiry</button>
-    <div class="form-note" style="margin-top:8px;">We reply personally within hours</div>
-  </div>
-</div>
-
-<div class="xray-overlay" id="xrayOverlay" onclick="if(event.target===this)closeXrayRequest()">
-  <div class="xray-modal">
-    <div class="xray-modal-t" id="xrayModalTitle">Request X-rays</div>
-    <div class="xray-modal-s">How would you like us to send them?</div>
-    <a class="xray-choice" id="xrayEmailLink" href="#">
-      <div class="xray-choice-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m22 6-10 7L2 6"/></svg></div>
-      <div class="xray-choice-txt"><div class="xray-choice-title">Email</div><div class="xray-choice-sub">We will send records to your inbox</div></div>
-      <span style="color:#ccc;">&#8594;</span>
-    </a>
-    <div class="xray-choice" onclick="toggleXrayForm('email')">
-      <div class="xray-choice-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></div>
-      <div class="xray-choice-txt"><div class="xray-choice-title">Leave your email</div><div class="xray-choice-sub">We will contact you with records</div></div>
-      <span style="color:#ccc;">&#8594;</span>
-    </div>
-    <div class="xray-form" id="xrayEmailForm">
-      <input type="email" id="xrayEmailInput" placeholder="your@email.com">
-      <button onclick="submitXrayContact('email')">Send request</button>
-    </div>
-    <div class="xray-choice" onclick="toggleXrayForm('phone')">
-      <div class="xray-choice-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
-      <div class="xray-choice-txt"><div class="xray-choice-title">Leave your number</div><div class="xray-choice-sub">We will contact you back</div></div>
-      <span style="color:#ccc;">&#8594;</span>
-    </div>
-    <div class="xray-form" id="xrayPhoneForm">
-      <input type="tel" id="xrayPhoneInput" placeholder="+40 xxx xxx xxx">
-      <button onclick="submitXrayContact('phone')">Send request</button>
-    </div>
-    <button class="xray-close" onclick="closeXrayRequest()">Cancel</button>
-  </div>
 </div>
 
 <script>
@@ -423,21 +314,21 @@ const CONTACT = {
 };
 
 const HORSES = [
-  {id:1,name:"Placeholder Atlas",initials:"PA",breed:"Sire x Dam · Gelding · 2018",level:"1.40m / GP potential",age:"8 y.o.",gender:"Gelding",height:"172 cm",location:"Germany",tier:"sport-plus",lease:false,photos:[],tags:["GP potential","Careful jumper","Easy to ride","Strong pedigree"],desc:"Placeholder description for a top-level sport horse. Exceptional scope and rideability, carefully produced and ready for an ambitious rider. Contact us for full details and viewing.",timeline:[{year:2018,event:"Born",detail:"Placeholder pedigree"},{year:2022,event:"Young horse debut",detail:"First competition season"},{year:2024,event:"International level",detail:"Consistent results at 1.35m+"},{year:2026,event:"Available for sale",detail:"Contact us for more information"}]},
-  {id:2,name:"Placeholder Nova",initials:"PN",breed:"Sire x Dam · Mare · 2019",level:"1.30m+",age:"7 y.o.",gender:"Mare",height:"168 cm",location:"Romania",tier:"sport",lease:true,photos:[],tags:["Scopey mare","Lady rider suitable","Clean vetting","Broodmare option"],desc:"Placeholder description for a talented sport mare. Elegant, careful, and very rideable with clear potential for higher classes. Available for purchase or lease.",timeline:[{year:2019,event:"Born",detail:"Placeholder bloodline"},{year:2023,event:"Sport debut",detail:"National and regional circuit"},{year:2025,event:"1.30m level",detail:"Showing consistent form"},{year:2026,event:"Available for sale",detail:"Contact us for details"}]},
-  {id:3,name:"Placeholder Echo",initials:"PE",breed:"Sire x Dam · Gelding · 2020",level:"1.20-1.25m",age:"6 y.o.",gender:"Gelding",height:"165 cm",location:"Romania",tier:"cm120",lease:false,photos:[],tags:["Honest character","Junior suitable","Quick learner","X-rays available"],desc:"Placeholder description for a reliable young gelding. Kind temperament and careful technique make him a strong candidate for a developing rider.",timeline:[{year:2020,event:"Born",detail:"Placeholder pedigree"},{year:2023,event:"Backing",detail:"Started under saddle"},{year:2025,event:"Competition debut",detail:"1.20m classes"},{year:2026,event:"Available for sale",detail:"Contact us for details"}]},
-  {id:4,name:"Placeholder Sol",initials:"PS",breed:"Sire x Dam · Mare · 2021",level:"Young Horse",age:"5 y.o.",gender:"Mare",height:"163 cm",location:"Germany",tier:"young",lease:false,photos:[],tags:["Young prospect","Balanced temperament","Amateur friendly","Scope for 1.30m+"],desc:"Placeholder description for a promising young mare. Well-started with excellent basics and a bright future in the sport ring.",timeline:[{year:2021,event:"Born",detail:"Placeholder bloodline"},{year:2024,event:"First season",detail:"Young horse classes"},{year:2026,event:"Available for sale",detail:"Contact us for details"}]},
-  {id:5,name:"Placeholder Vale",initials:"PV",breed:"Sire x Dam · Gelding · 2017",level:"1.10-1.20m",age:"9 y.o.",gender:"Gelding",height:"166 cm",location:"Romania",tier:"cm120",lease:true,photos:[],tags:["Amateur friendly","Dressage and jumping","Reliable partner","Potential to 1.30m"],desc:"Placeholder description for an experienced amateur horse. Honest, kind, and communicative with a solid competition record.",timeline:[{year:2017,event:"Born",detail:"Placeholder pedigree"},{year:2020,event:"First training",detail:"Combined training"},{year:2023,event:"1.10-1.20m",detail:"National circuit"},{year:2026,event:"Available for sale",detail:"Contact us for details"}]},
-  {id:6,name:"Placeholder Onyx",initials:"PO",breed:"Sire x Dam · Stallion · 2018",level:"1.35m / scope 1.45m",age:"8 y.o.",gender:"Stallion",height:"175 cm",location:"Germany",tier:"sport-plus",lease:false,photos:[],tags:["Powerful jump","Licensed stallion","Tall rider suitable","Breeding option"],desc:"Placeholder description for an impressive stallion with scope and power. Exceptional bloodlines and a trainable character for sport or breeding.",timeline:[{year:2018,event:"Born",detail:"Placeholder bloodline"},{year:2022,event:"Licensed",detail:"Approved for breeding"},{year:2024,event:"1.35m level",detail:"International experience"},{year:2026,event:"Available for sale",detail:"Contact us for details"}]},
-  {id:7,name:"Placeholder Iris",initials:"PI",breed:"Sire x Dam · Mare · 2016",level:"1.30m",age:"10 y.o.",gender:"Mare",height:"167 cm",location:"Romania",tier:"sport",lease:false,photos:[],tags:["CSI experience","Speed specialist","European starts","Competitive spirit"],desc:"Placeholder description for a competitive mare with international experience. Fast, careful, and a real winner type.",timeline:[{year:2016,event:"Born",detail:"Placeholder pedigree"},{year:2020,event:"European circuit",detail:"First international starts"},{year:2024,event:"1.30m level",detail:"Consistent placings"},{year:2026,event:"Available for sale",detail:"Contact us for details"}]},
-  {id:8,name:"Placeholder Rue",initials:"PR",breed:"Sire x Dam · Gelding · 2022",level:"Young Horse",age:"4 y.o.",gender:"Gelding",height:"162 cm",location:"Romania",tier:"young",lease:false,photos:[],tags:["Future prospect","Excellent gaits","Kind nature","Produced in-house"],desc:"Placeholder description for a young gelding produced by LRN Equestrian. Showing excellent movement and a superb attitude for future sport.",timeline:[{year:2022,event:"Born",detail:"LRN-bred prospect"},{year:2025,event:"Backing",detail:"Started under saddle"},{year:2026,event:"Available for sale",detail:"Contact us for details"}]},
+  {id:1,name:"Placeholder Atlas",initials:"PA",breed:"Sire x Dam · Gelding · 2018",level:"1.40m / GP potential",age:"8 y.o.",gender:"Gelding",height:"172 cm",location:"Germany",lease:false,photos:[],tags:["GP potential","Careful jumper","Easy to ride","Strong pedigree"],desc:"Placeholder description for a top-level sport horse. Exceptional scope and rideability, carefully produced and ready for an ambitious rider. Contact us for full details and viewing.",timeline:[{year:2018,event:"Born",detail:"Placeholder pedigree"},{year:2022,event:"Young horse debut",detail:"First competition season"},{year:2024,event:"International level",detail:"Consistent results at 1.35m+"},{year:2026,event:"Available for sale",detail:"Enquire for details"}]},
+  {id:2,name:"Placeholder Nova",initials:"PN",breed:"Sire x Dam · Mare · 2019",level:"1.30m+",age:"7 y.o.",gender:"Mare",height:"168 cm",location:"Romania",lease:true,photos:[],tags:["Scopey mare","Lady rider suitable","Clean vetting","Broodmare option"],desc:"Placeholder description for a talented sport mare. Elegant, careful, and very rideable with clear potential for higher classes. Available for purchase or lease.",timeline:[{year:2019,event:"Born",detail:"Placeholder bloodline"},{year:2023,event:"Sport debut",detail:"National and regional circuit"},{year:2025,event:"1.30m level",detail:"Showing consistent form"},{year:2026,event:"Available for sale",detail:"Enquire for details"}]},
+  {id:3,name:"Placeholder Echo",initials:"PE",breed:"Sire x Dam · Gelding · 2020",level:"1.20-1.25m",age:"6 y.o.",gender:"Gelding",height:"165 cm",location:"Romania",lease:false,photos:[],tags:["Honest character","Junior suitable","Quick learner","Vetting available"],desc:"Placeholder description for a reliable young gelding. Kind temperament and careful technique make him a strong candidate for a developing rider.",timeline:[{year:2020,event:"Born",detail:"Placeholder pedigree"},{year:2023,event:"Backing",detail:"Started under saddle"},{year:2025,event:"Competition debut",detail:"1.20m classes"},{year:2026,event:"Available for sale",detail:"Enquire for details"}]},
+  {id:4,name:"Placeholder Sol",initials:"PS",breed:"Sire x Dam · Mare · 2021",level:"Young Horse",age:"5 y.o.",gender:"Mare",height:"163 cm",location:"Germany",lease:false,photos:[],tags:["Young prospect","Balanced temperament","Amateur friendly","Scope for 1.30m+"],desc:"Placeholder description for a promising young mare. Well-started with excellent basics and a bright future in the sport ring.",timeline:[{year:2021,event:"Born",detail:"Placeholder bloodline"},{year:2024,event:"First season",detail:"Young horse classes"},{year:2026,event:"Available for sale",detail:"Enquire for details"}]},
+  {id:5,name:"Placeholder Vale",initials:"PV",breed:"Sire x Dam · Gelding · 2017",level:"1.10-1.20m",age:"9 y.o.",gender:"Gelding",height:"166 cm",location:"Romania",lease:true,photos:[],tags:["Amateur friendly","Dressage and jumping","Reliable partner","Potential to 1.30m"],desc:"Placeholder description for an experienced amateur horse. Honest, kind, and communicative with a solid competition record.",timeline:[{year:2017,event:"Born",detail:"Placeholder pedigree"},{year:2020,event:"First training",detail:"Combined training"},{year:2023,event:"1.10-1.20m",detail:"National circuit"},{year:2026,event:"Available for sale",detail:"Enquire for details"}]},
+  {id:6,name:"Placeholder Onyx",initials:"PO",breed:"Sire x Dam · Stallion · 2018",level:"1.35m / scope 1.45m",age:"8 y.o.",gender:"Stallion",height:"175 cm",location:"Germany",lease:false,photos:[],tags:["Powerful jump","Licensed stallion","Tall rider suitable","Breeding option"],desc:"Placeholder description for an impressive stallion with scope and power. Exceptional bloodlines and a trainable character for sport or breeding.",timeline:[{year:2018,event:"Born",detail:"Placeholder bloodline"},{year:2022,event:"Licensed",detail:"Approved for breeding"},{year:2024,event:"1.35m level",detail:"International experience"},{year:2026,event:"Available for sale",detail:"Enquire for details"}]},
+  {id:7,name:"Placeholder Iris",initials:"PI",breed:"Sire x Dam · Mare · 2016",level:"1.30m",age:"10 y.o.",gender:"Mare",height:"167 cm",location:"Romania",lease:false,photos:[],tags:["CSI experience","Speed specialist","European starts","Competitive spirit"],desc:"Placeholder description for a competitive mare with international experience. Fast, careful, and a real winner type.",timeline:[{year:2016,event:"Born",detail:"Placeholder pedigree"},{year:2020,event:"European circuit",detail:"First international starts"},{year:2024,event:"1.30m level",detail:"Consistent placings"},{year:2026,event:"Available for sale",detail:"Enquire for details"}]},
+  {id:8,name:"Placeholder Rue",initials:"PR",breed:"Sire x Dam · Gelding · 2022",level:"Young Horse",age:"4 y.o.",gender:"Gelding",height:"162 cm",location:"Romania",lease:false,photos:[],tags:["Future prospect","Excellent gaits","Kind nature","Produced in-house"],desc:"Placeholder description for a young gelding produced by LRN Equestrian. Showing excellent movement and a superb attitude for future sport.",timeline:[{year:2022,event:"Born",detail:"LRN-bred prospect"},{year:2025,event:"Backing",detail:"Started under saddle"},{year:2026,event:"Available for sale",detail:"Enquire for details"}]},
 ];
 
 const SOLD = [
-  {id:101,name:"Placeholder Sold A",initials:"SA",country:"Germany"},
-  {id:102,name:"Placeholder Sold B",initials:"SB",country:"Romania"},
-  {id:103,name:"Placeholder Sold C",initials:"SC",country:"Netherlands"},
-  {id:104,name:"Placeholder Sold D",initials:"SD",country:"Austria"},
+  {id:101,name:"Placeholder Sold A",initials:"SA",country:"Germany",year:"2025"},
+  {id:102,name:"Placeholder Sold B",initials:"SB",country:"Romania",year:"2025"},
+  {id:103,name:"Placeholder Sold C",initials:"SC",country:"Netherlands",year:"2024"},
+  {id:104,name:"Placeholder Sold D",initials:"SD",country:"Austria",year:"2024"},
 ];
 
 const COMING = [
@@ -449,14 +340,12 @@ const COMING = [
   {id:206,name:"Placeholder Coming VI",initials:"CVI",breed:"2023 · Gelding",year:"2023"},
 ];
 
-const TIER_LABEL = {elite:"Elite","sport-plus":"Sport+",sport:"Sport",young:"Young Horse",amateur:"Amateur",cm120:"1.20m",cm110:"1.10m"};
-const TIER_CLS = {elite:"b-elite","sport-plus":"b-sport-plus",sport:"b-sport",young:"b-young",amateur:"b-amateur",cm120:"b-cm120",cm110:"b-cm110"};
-
-let curView = "grid", curMode = "sale", expandedTimeline = null, sliderLevel = 0;
-const SLIDER_HEIGHTS = [0, 110, 120, 130, 140, 150];
-let scoutOpen = false;
-const scoutChoices = {level:"", rider:""};
-let galleryIndex = 0, galleryHorse = null, xrayCurrentHorse = "";
+let curView = "grid";
+let curMode = "sale";
+let curLevelFilter = "all";
+let galleryIndex = 0;
+let galleryHorse = null;
+const needChoices = { level: "", rider: "" };
 
 function heartSvg(filled) {
   const fill = filled ? "currentColor" : "none";
@@ -467,187 +356,216 @@ function mailto(subject, body) {
   return "mailto:" + CONTACT.email + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
 }
 
-function whatsappUrl(msg) {
-  if (!CONTACT.whatsapp) return mailto("LRN Equestrian Enquiry", msg);
-  return "https://wa.me/" + CONTACT.whatsapp.replace(/\D/g,"") + "?text=" + encodeURIComponent(msg);
-}
-
 function contactHref(msg) {
-  return CONTACT.whatsapp ? whatsappUrl(msg) : mailto("LRN Equestrian Enquiry", msg);
+  if (CONTACT.whatsapp) {
+    return "https://wa.me/" + CONTACT.whatsapp.replace(/\D/g, "") + "?text=" + encodeURIComponent(msg);
+  }
+  return mailto("LRN Equestrian Enquiry", msg);
 }
 
 function initContact() {
-  const header = document.getElementById("headerContact");
-  header.href = mailto("LRN Equestrian Enquiry", "Hello LRN Equestrian,\n\nI would like to enquire about your horses for sale.\n\n");
-  header.textContent = CONTACT.whatsapp ? "WhatsApp Us" : "Contact Us";
-  document.getElementById("soldCount").textContent = SOLD.length;
-  document.getElementById("comingCount").textContent = COMING.length;
+  document.getElementById("headerContact").href = mailto("LRN Equestrian Enquiry", "Hello LRN Equestrian,\n\nI would like to enquire about your horses for sale.\n\n");
+  document.getElementById("soldTabCount").textContent = SOLD.length;
+  document.getElementById("comingTabCount").textContent = COMING.length;
+  updateTabCounts();
 }
-
-const tickerData = [...SOLD, ...SOLD];
-document.getElementById("ticker").innerHTML = tickerData.map(t =>
-  `<span class="tick-item"><span class="tick-sold">SOLD</span><span class="tick-name">${t.name}</span><span class="tick-country">${t.country}</span><span style="color:rgba(255,255,255,.2);margin-left:8px">&#183;</span></span>`
-).join("");
 
 function horseMinHeight(h) {
   const m = h.level.match(/1\.(\d)(\d)/);
-  if (m) return 100 + parseInt(m[1],10)*10 + parseInt(m[2],10);
+  if (m) return 100 + parseInt(m[1], 10) * 10 + parseInt(m[2], 10);
+  if (/young/i.test(h.level)) return 0;
+  if (/gp|1\.4|1\.5|145|150/i.test(h.level)) return 140;
   return 100;
+}
+
+function matchesLevelFilter(h) {
+  if (curLevelFilter === "all") return true;
+  if (curLevelFilter === "young") return /young/i.test(h.level);
+  const min = horseMinHeight(h);
+  if (curLevelFilter === "110120") return min >= 105 && min < 125;
+  if (curLevelFilter === "130") return min >= 125 && min < 140;
+  if (curLevelFilter === "140plus") return min >= 140 || /gp|1\.4|1\.5|145|150/i.test(h.level);
+  return true;
 }
 
 function getFiltered() {
   const sort = document.getElementById("sortSel").value;
-  let arr = [...HORSES];
-  if (sliderLevel > 0) arr = arr.filter(h => horseMinHeight(h) >= sliderLevel - 5);
-  if (sort === "age-asc") arr.sort((a,b) => parseInt(a.age,10) - parseInt(b.age,10));
-  else if (sort === "age-desc") arr.sort((a,b) => parseInt(b.age,10) - parseInt(a.age,10));
+  let arr = [...HORSES].filter(matchesLevelFilter);
+  if (sort === "age-asc") arr.sort((a, b) => parseInt(a.age, 10) - parseInt(b.age, 10));
+  else if (sort === "age-desc") arr.sort((a, b) => parseInt(b.age, 10) - parseInt(a.age, 10));
   return arr;
 }
 
 function photoEl(h) {
   if (h.photos && h.photos.length) return `<img src="${h.photos[0]}" alt="${h.name}" loading="lazy">`;
-  return `<span class="photo-initials">${h.initials || h.name.slice(0,2).toUpperCase()}</span>`;
+  return `<span class="photo-initials">${h.initials || h.name.slice(0, 2).toUpperCase()}</span>`;
 }
 
-function tierBadge(h) {
-  if (!h.tier || !TIER_LABEL[h.tier]) return "";
-  return `<div class="badge ${TIER_CLS[h.tier]}">${TIER_LABEL[h.tier]}</div>`;
+function statusBadge(h) {
+  if (h.lease) return `<div class="status-badge">Lease</div>`;
+  return "";
 }
 
 function heartBtn(id) {
   const saved = isFav(id);
-  return `<button class="heart-btn${saved?" saved":""}" onclick="event.stopPropagation();toggleFav(${id})" aria-label="${saved?"Remove from saved":"Save horse"}">${heartSvg(saved)}</button>`;
-}
-
-function priceHtml() {
-  return `<div class="price-req">Contact us</div>`;
+  return `<button class="heart-btn${saved ? " saved" : ""}" onclick="event.stopPropagation();toggleFav(${id})" aria-label="${saved ? "Remove from shortlist" : "Add to shortlist"}">${heartSvg(saved)}</button>`;
 }
 
 function gridCardHtml(h) {
-  const lease = h.lease ? `<div class="lease-corner">Lease</div>` : tierBadge(h);
   return `<div class="gcard" onclick="openHorse(${h.id})">
-    <div class="gcard-photo">${photoEl(h)}${lease}${heartBtn(h.id)}</div>
+    <div class="gcard-photo">${photoEl(h)}${statusBadge(h)}${heartBtn(h.id)}</div>
     <div class="gcard-body">
       <div class="gcard-name">${h.name}</div>
       <div class="gcard-breed">${h.breed}</div>
       <div class="gcard-meta">${h.level} &middot; ${h.age}</div>
-      <div class="gcard-price"><span class="price-req">Contact us</span></div>
+      <div class="gcard-price"><span class="price-req">Enquire for details</span></div>
     </div>
   </div>`;
 }
 
 function listCardHtml(h) {
-  const lease = h.lease ? `<div class="lease-corner">Lease</div>` : tierBadge(h);
   return `<div class="hcard" onclick="openHorse(${h.id})">
-    <div class="hcard-photo">${photoEl(h)}${lease}${heartBtn(h.id)}</div>
+    <div class="hcard-photo">${photoEl(h)}${statusBadge(h)}${heartBtn(h.id)}</div>
     <div class="hcard-body">
       <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;">
         <div><div class="hcard-name">${h.name}</div><div class="hcard-breed">${h.breed}</div></div>
-        <div class="hcard-price">${priceHtml()}</div>
+        <div class="hcard-price"><div class="price-req">Enquire for details</div></div>
       </div>
-      <div class="hcard-specs">${[["Level",h.level],["Age",h.age],["Gender",h.gender],["Location",h.location]].map(([l,v])=>`<div><div class="sp-l">${l}</div><div class="sp-v">${v}</div></div>`).join("")}</div>
+      <div class="hcard-specs">${[["Level", h.level], ["Age", h.age], ["Gender", h.gender], ["Location", h.location]].map(([l, v]) => `<div><div class="sp-l">${l}</div><div class="sp-v">${v}</div></div>`).join("")}</div>
       <div class="hcard-bottom">
-        <div class="tags">${h.tags.slice(0,3).map(t=>`<div class="tag">${t}</div>`).join("")}</div>
-        <div class="view-arrow">View profile</div>
+        <div class="tags">${h.tags.slice(0, 3).map(t => `<div class="tag">${t}</div>`).join("")}</div>
+        <span class="view-link">See details</span>
       </div>
     </div>
   </div>`;
 }
 
+function updateTabCounts() {
+  document.getElementById("saleTabCount").textContent = getFiltered().length;
+}
+
+function setMode(mode, el) {
+  curMode = mode;
+  document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("on"));
+  if (el) el.classList.add("on");
+  else {
+    const btn = document.querySelector(`.tab-btn[data-mode="${mode}"]`);
+    if (btn) btn.classList.add("on");
+  }
+  const toolbar = document.getElementById("toolbar");
+  const needSection = document.getElementById("needSection");
+  toolbar.style.display = (mode === "sale" || mode === "shortlist") ? "" : "none";
+  needSection.style.display = (mode === "sale") ? "" : "none";
+  hideBanner();
+  render();
+}
+
+function setLevelFilter(filter, el) {
+  curLevelFilter = filter;
+  document.querySelectorAll(".chip").forEach(c => c.classList.remove("on"));
+  el.classList.add("on");
+  render();
+}
+
 function render() {
-  if (curMode === "sold") { renderSold(); return; }
-  if (curMode === "coming") { renderComing(); return; }
-  if (curMode === "saved") { renderSaved(); return; }
-  const arr = getFiltered();
-  document.getElementById("availCount").textContent = arr.length;
-  document.getElementById("toolbar").style.display = "";
   hideBanner();
   const grid = document.getElementById("horseGrid");
+
+  if (curMode === "sold") {
+    grid.className = "sold-list";
+    grid.innerHTML = SOLD.map(h => `
+      <div class="sold-row">
+        <div>
+          <div class="sold-row-name">${h.name}</div>
+          <div class="sold-row-meta">Placed in ${h.country}${h.year ? " · " + h.year : ""}</div>
+        </div>
+        <div class="sold-label">Sold</div>
+      </div>`).join("");
+    return;
+  }
+
+  if (curMode === "coming") {
+    grid.className = "coming-list";
+    grid.innerHTML = COMING.map(h => `
+      <div class="coming-row">
+        <div>
+          <div class="coming-row-name">${h.name}</div>
+          <div class="coming-row-meta">${h.breed}</div>
+        </div>
+        <div class="coming-row-actions">
+          <span class="sold-label">Arriving soon</span>
+          <button class="interest-link" onclick="registerInterest('${h.name.replace(/'/g, "")}')">Register interest</button>
+        </div>
+      </div>`).join("");
+    return;
+  }
+
+  if (curMode === "shortlist") {
+    const favHorses = HORSES.filter(h => favorites.includes(h.id));
+    if (!favHorses.length) {
+      grid.className = "";
+      grid.innerHTML = `<div class="empty-state">Your shortlist is empty.<br><a href="#" onclick="setMode('sale',document.querySelector('.tab-btn[data-mode=sale]'));return false;">Browse horses for sale</a></div>`;
+      return;
+    }
+    grid.className = curView === "list" ? "list-view" : "grid-view";
+    grid.innerHTML = favHorses.map(h => curView === "list" ? listCardHtml(h) : gridCardHtml(h)).join("");
+    return;
+  }
+
+  const arr = getFiltered();
+  updateTabCounts();
   grid.className = curView === "list" ? "list-view" : "grid-view";
-  grid.innerHTML = arr.map(h => curView === "list" ? listCardHtml(h) : gridCardHtml(h)).join("");
+  grid.innerHTML = arr.length
+    ? arr.map(h => curView === "list" ? listCardHtml(h) : gridCardHtml(h)).join("")
+    : `<div class="empty-state">No horses match this filter.<br><a href="#" onclick="setLevelFilter('all',document.querySelector('.chip[data-filter=all]'));return false;">Clear filters</a></div>`;
 }
 
-function showSold() { curMode = "sold"; document.getElementById("toolbar").style.display = "none"; renderSold(); }
-function showComing() { curMode = "coming"; document.getElementById("toolbar").style.display = "none"; renderComing(); }
-function hideBanner() { document.getElementById("banner").style.display = "none"; }
-function showBanner(html, cls) {
-  const b = document.getElementById("banner");
-  b.className = "banner " + cls;
-  b.innerHTML = html;
-  b.style.display = "flex";
-}
-function backToSale() { curMode = "sale"; document.getElementById("toolbar").style.display = ""; hideBanner(); render(); updateSavedBar(); }
-
-function renderSold() {
-  showBanner(`<div style="font-size:13px;color:var(--accent-dark);font-weight:500;">${SOLD.length} horses sold across Europe</div><button class="back-btn" onclick="backToSale()">Back to catalogue</button>`, "accent");
-  const grid = document.getElementById("horseGrid");
-  grid.className = "grid-view";
-  grid.innerHTML = SOLD.map(h => `
-    <div class="gcard" style="cursor:default;">
-      <div class="gcard-photo">${photoEl(h)}<div class="sold-stamp">Sold</div></div>
-      <div class="gcard-body" style="text-align:center;">
-        <div class="gcard-name">${h.name}</div>
-        <div style="font-size:12px;color:var(--accent-dark);font-weight:500;margin-top:5px;">${h.country}</div>
-      </div>
-    </div>`).join("");
+function showShortlist() {
+  setMode("shortlist", null);
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
-function renderComing() {
-  showBanner(`<div style="font-size:13px;color:var(--accent-dark);font-weight:500;">${COMING.length} horses arriving soon — be the first to know</div><button class="back-btn" onclick="backToSale()">Back</button>`, "bronze");
-  const grid = document.getElementById("horseGrid");
-  grid.className = "grid-view";
-  grid.innerHTML = COMING.map(h => `
-    <div class="gcard" style="cursor:default;">
-      <div class="gcard-photo">${photoEl(h)}<div class="coming-overlay"><div class="coming-badge">Coming Soon</div></div></div>
-      <div class="gcard-body" style="text-align:center;">
-        <div class="gcard-name">${h.name}</div>
-        <div style="font-size:12px;color:var(--muted);margin-top:4px;">${h.breed}</div>
-        <button class="notify-btn" onclick="openNotify()">Notify me</button>
-      </div>
-    </div>`).join("");
+function hideBanner() {
+  document.getElementById("banner").style.display = "none";
 }
 
-function openNotify() {
-  window.location.href = mailto("Notify me — new horses arriving", "Hello LRN Equestrian,\n\nPlease notify me when new horses are added to your catalogue.\n\nMy contact details:\n\n");
+function registerInterest(name) {
+  window.location.href = mailto("Interest: " + name, "Hello LRN Equestrian,\n\nI would like to register my interest in " + name + ", listed as arriving soon.\n\nMy contact details:\n\n");
 }
 
 function setView(v) {
   curView = v;
   document.getElementById("listBtn").classList.toggle("on", v === "list");
   document.getElementById("gridBtn").classList.toggle("on", v === "grid");
-  if (curMode === "saved") renderSaved(); else render();
+  render();
 }
 
-function applyFilters() { render(); }
-
-function onSliderInput(val) {
-  sliderLevel = SLIDER_HEIGHTS[parseInt(val,10)];
-  const valEl = document.getElementById("sliderVal");
-  valEl.innerHTML = sliderLevel === 0 ? "All levels" : (sliderLevel/100).toFixed(2) + '<span class="unit">m+</span>';
+function applyFilters() {
   render();
 }
 
 function goHome() {
   curMode = "sale";
-  sliderLevel = 0;
-  document.getElementById("levelSlider").value = 0;
-  document.getElementById("sliderVal").innerHTML = "All levels";
+  curLevelFilter = "all";
   document.getElementById("sortSel").value = "default";
-  document.getElementById("toolbar").style.display = "";
-  hideBanner();
-  render();
-  window.scrollTo({top:0, behavior:"smooth"});
+  document.querySelectorAll(".chip").forEach(c => c.classList.remove("on"));
+  document.querySelector('.chip[data-filter="all"]').classList.add("on");
+  setMode("sale", document.querySelector('.tab-btn[data-mode="sale"]'));
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 function galleryHtml(h) {
-  if (!h.photos || !h.photos.length) return `<span class="photo-initials" style="font-size:72px;color:rgba(255,255,255,.2);">${h.initials}</span>`;
-  galleryIndex = 0; galleryHorse = h;
+  if (!h.photos || !h.photos.length) {
+    return `<span class="photo-initials" style="font-size:72px;color:rgba(255,255,255,.2);">${h.initials}</span>`;
+  }
+  galleryIndex = 0;
+  galleryHorse = h;
   const multi = h.photos.length > 1;
-  return `<img src="${h.photos[0]}" alt="${h.name}" id="galleryImg">${multi?`
+  return `<img src="${h.photos[0]}" alt="${h.name}" id="galleryImg">${multi ? `
     <button class="gallery-arrow left" onclick="event.stopPropagation();galleryNav(-1)">&#8249;</button>
     <button class="gallery-arrow right" onclick="event.stopPropagation();galleryNav(1)">&#8250;</button>
     <div class="gallery-counter" id="galleryCounter">1 / ${h.photos.length}</div>
-    <div class="gallery-dots" id="galleryDots">${h.photos.map((_,i)=>`<div class="gallery-dot${i===0?" active":""}" onclick="event.stopPropagation();galleryGo(${i})"></div>`).join("")}</div>`:""}`;
+    <div class="gallery-dots" id="galleryDots">${h.photos.map((_, i) => `<div class="gallery-dot${i === 0 ? " active" : ""}" onclick="event.stopPropagation();galleryGo(${i})"></div>`).join("")}</div>` : ""}`;
 }
 
 function galleryNav(dir) {
@@ -655,75 +573,66 @@ function galleryNav(dir) {
   galleryIndex = (galleryIndex + dir + galleryHorse.photos.length) % galleryHorse.photos.length;
   updateGallery();
 }
-function galleryGo(i) { galleryIndex = i; updateGallery(); }
+
+function galleryGo(i) {
+  galleryIndex = i;
+  updateGallery();
+}
+
 function updateGallery() {
   if (!galleryHorse) return;
   const img = document.getElementById("galleryImg");
   if (img) img.src = galleryHorse.photos[galleryIndex];
   const counter = document.getElementById("galleryCounter");
-  if (counter) counter.textContent = `${galleryIndex+1} / ${galleryHorse.photos.length}`;
-  document.querySelectorAll(".gallery-dot").forEach((d,i) => d.classList.toggle("active", i === galleryIndex));
+  if (counter) counter.textContent = `${galleryIndex + 1} / ${galleryHorse.photos.length}`;
+  document.querySelectorAll(".gallery-dot").forEach((d, i) => d.classList.toggle("active", i === galleryIndex));
 }
 
 function openHorse(id) {
-  expandedTimeline = null;
   const h = HORSES.find(x => x.id === id);
   if (!h) return;
-  const timelineHtml = h.timeline.map((item,i) => {
-    const isLast = i === h.timeline.length - 1;
-    const col = isLast ? "var(--primary)" : i >= h.timeline.length - 2 ? "var(--bronze)" : "var(--accent)";
-    const dotBg = isLast ? "var(--primary)" : "white";
-    const dotColor = isLast ? "white" : "var(--accent-dark)";
-    return `<div class="titem" onclick="toggleTimeline(${i})">
-      <div class="tdot" style="background:${dotBg};border:2px solid ${col};color:${dotColor}">${String(item.year).slice(2)}</div>
-      <div class="ttext">
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;">
-          <div class="tevent" style="font-weight:${isLast?600:400};color:${isLast?"var(--primary)":"var(--ink)"}">${item.event}</div>
-          <div class="tyear" style="color:${col}">${item.year}</div>
-        </div>
-        <div class="tdetail" id="tdetail-${i}" style="max-height:0;opacity:0;">${item.detail}</div>
-        <div class="thint" id="thint-${i}">click to expand</div>
-      </div>
-    </div>`;
-  }).join("");
 
   const safeName = h.name.replace(/'/g, "");
+  const bgHtml = h.timeline.map(item =>
+    `<li><span class="bg-year">${item.year}</span><span><strong>${item.event}</strong> — ${item.detail}</span></li>`
+  ).join("");
 
   document.getElementById("profileBox").innerHTML = `
     <div class="pphoto-clean">${galleryHtml(h)}
-      <button class="heart-btn-profile${isFav(h.id)?" saved":""}" onclick="toggleFav(${h.id});refreshHeartProfile(${h.id})">${heartSvg(isFav(h.id))}</button>
+      <button class="heart-btn-profile${isFav(h.id) ? " saved" : ""}" onclick="toggleFav(${h.id});refreshHeartProfile(${h.id})">${heartSvg(isFav(h.id))}</button>
       <button class="pclose-clean" onclick="closeProfile()" aria-label="Close">&#215;</button>
     </div>
     <div class="pbody">
       <div class="name-block" style="padding-left:0;padding-right:0;">
         <div><div class="pname-clean">${h.name}</div><div class="pbreed-clean">${h.breed}</div></div>
-        <div style="text-align:right;"><div class="pprice-lbl-clean">Price</div><div class="pprice-clean">Contact us</div></div>
+        <div style="text-align:right;"><div class="pprice-lbl-clean">Price</div><div class="pprice-clean">Enquire for details</div></div>
       </div>
-      <div class="pspecs">${[["Level",h.level],["Age",h.age],["Gender",h.gender],["Location",h.location]].map(([l,v],i)=>`<div class="psc" style="${i===3?"border-right:none":""}"><div class="psc-l">${l}</div><div class="psc-v">${v}</div></div>`).join("")}</div>
-      ${h.lease?`<div class="lease-options"><div class="lease-opt-box active"><div class="lease-opt-label">Purchase</div><div class="lease-opt-val">Contact us</div></div><div class="lease-opt-box"><div class="lease-opt-label">Lease</div><div class="lease-opt-val">Available</div></div></div>`:""}
-      <div class="psec"><div class="psec-t">Highlights</div><div class="ptags">${h.tags.map(t=>`<div class="ptag">${t}</div>`).join("")}</div></div>
+      <div class="pspecs">${[["Level", h.level], ["Age", h.age], ["Gender", h.gender], ["Location", h.location]].map(([l, v], i) => `<div class="psc" style="${i === 3 ? "border-right:none" : ""}"><div class="psc-l">${l}</div><div class="psc-v">${v}</div></div>`).join("")}</div>
+      <div class="psec"><div class="psec-t">Highlights</div><div class="ptags">${h.tags.map(t => `<div class="ptag">${t}</div>`).join("")}</div></div>
       <div class="psec"><div class="psec-t">About</div><div class="pdesc"><p>${h.desc}</p></div></div>
-      <div class="psec"><div class="psec-t">Career and Development</div><div class="timeline"><div class="tline"></div>${timelineHtml}</div></div>
-      <div class="psec"><button class="xray-btn" onclick="openXrayRequest('${safeName}')"><div><div class="xray-btn-title">Request X-rays and vetting</div><div class="xray-btn-sub">Clinical records available on request</div></div></button></div>
+      <div class="psec"><div class="psec-t">Background</div><ul class="bg-list">${bgHtml}</ul></div>
       <div class="psec">
-        <div class="psec-t">Send Enquiry</div>
+        <div class="vetting-note">Vetting records available on request. <a href="${mailto("Vetting records: " + safeName, "Hello LRN Equestrian,\n\nI would like to request vetting records for " + safeName + ".\n\nThank you.")}">Email us</a></div>
+      </div>
+      <div class="psec">
+        <div class="psec-t">Enquiry</div>
         <div class="enquiry" id="enquiryForm">
-          <p style="font-size:13px;color:var(--mid);margin-bottom:12px;line-height:1.5;">Interested in <strong>${h.name}</strong>? Leave your details and we will contact you within 24 hours.</p>
+          <p style="font-size:13px;color:var(--mid);margin-bottom:12px;line-height:1.5;">Interested in <strong>${h.name}</strong>? Leave your details and we will be in touch.</p>
           <div class="einputs">
             <input class="einput" id="eName" placeholder="Your name">
             <input class="einput" id="eEmail" placeholder="Your email" type="email">
           </div>
-          <button class="esend" onclick="sendEnquiry('${safeName}')">Send Enquiry</button>
-          <div class="form-note">We contact you within 24 hours</div>
+          <button class="esend" onclick="sendEnquiry('${safeName}')">Send enquiry</button>
+          <div class="form-note">We reply within 24 hours</div>
         </div>
       </div>
     </div>
     <div class="pcta">
-      <a href="${contactHref("Hello LRN Equestrian, I am interested in " + h.name + ". Please contact me with more information.")}" class="cta-primary">Contact Us</a>
+      <a href="${contactHref("Hello LRN Equestrian, I am interested in " + h.name + ". Please contact me with more information.")}" class="cta-primary">Contact us</a>
       <button class="cta-share" onclick="shareHorse('${safeName}')" title="Share" aria-label="Share">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
       </button>
-      <button class="cta-back" onclick="closeProfile()">Back</button>
+      <button class="cta-back" onclick="closeProfile()">Close</button>
     </div>`;
   document.getElementById("profileOverlay").style.display = "flex";
   document.body.style.overflow = "hidden";
@@ -731,26 +640,9 @@ function openHorse(id) {
 
 function refreshHeartProfile(id) {
   const btn = document.querySelector(".heart-btn-profile");
-  if (btn) { btn.classList.toggle("saved", isFav(id)); btn.innerHTML = heartSvg(isFav(id)); }
-}
-
-function toggleTimeline(i) {
-  const detail = document.getElementById("tdetail-" + i);
-  const hint = document.getElementById("thint-" + i);
-  if (expandedTimeline === i) {
-    detail.style.maxHeight = "0"; detail.style.opacity = "0";
-    if (hint) hint.style.display = "";
-    expandedTimeline = null;
-  } else {
-    if (expandedTimeline !== null) {
-      const old = document.getElementById("tdetail-" + expandedTimeline);
-      const oldHint = document.getElementById("thint-" + expandedTimeline);
-      if (old) { old.style.maxHeight = "0"; old.style.opacity = "0"; }
-      if (oldHint) oldHint.style.display = "";
-    }
-    detail.style.maxHeight = "60px"; detail.style.opacity = "1";
-    if (hint) hint.style.display = "none";
-    expandedTimeline = i;
+  if (btn) {
+    btn.classList.toggle("saved", isFav(id));
+    btn.innerHTML = heartSvg(isFav(id));
   }
 }
 
@@ -762,144 +654,67 @@ function closeProfile() {
 function sendEnquiry(name) {
   const n = document.getElementById("eName").value.trim();
   const e = document.getElementById("eEmail").value.trim();
-  if (!n || !e || !e.includes("@")) { alert("Please enter your name and a valid email."); return; }
+  if (!n || !e || !e.includes("@")) {
+    alert("Please enter your name and a valid email.");
+    return;
+  }
   window.location.href = mailto("Enquiry: " + name, "Hello LRN Equestrian,\n\nI am interested in " + name + ".\n\nMy name: " + n + "\nMy email: " + e + "\n\nPlease contact me with more information.\n\n");
 }
 
 function shareHorse(name) {
   const url = window.location.href.split("#")[0];
-  const text = "Check out " + name + " on the LRN Equestrian horse catalogue.";
+  const text = "View " + name + " on the LRN Equestrian horses for sale page.";
   if (navigator.share) {
-    navigator.share({title: name + " — LRN Equestrian", text, url}).catch(() => {});
+    navigator.share({ title: name + " — LRN Equestrian", text, url }).catch(() => {});
   } else {
     navigator.clipboard.writeText(text + " " + url).then(() => alert("Link copied to clipboard.")).catch(() => alert("Share this link: " + url));
   }
 }
 
-function toggleScout() {
-  scoutOpen = !scoutOpen;
-  document.getElementById("scoutBox").style.display = scoutOpen ? "flex" : "none";
-}
-
-function pickOpt(category, value, el) {
-  scoutChoices[category] = value;
-  el.parentElement.querySelectorAll(".scout-opt").forEach(b => b.classList.remove("picked"));
+function pickNeed(category, value, el) {
+  needChoices[category] = value;
+  el.parentElement.querySelectorAll(".need-opt").forEach(b => b.classList.remove("picked"));
   el.classList.add("picked");
 }
 
-function sendScoutEnquiry() {
-  let msg = "Hello LRN Equestrian,\n\nI am looking for a horse from your catalogue.\n\n";
-  if (scoutChoices.level) msg += "Level: " + scoutChoices.level + "\n";
-  if (scoutChoices.rider) msg += "Rider type: " + scoutChoices.rider + "\n";
-  msg += "\nCan you help me find the right match?\n\n";
+function sendNeedEnquiry() {
+  let msg = "Hello LRN Equestrian,\n\nI am looking for a horse and would like your help finding a match.\n\n";
+  if (needChoices.level) msg += "Jump level: " + needChoices.level + "\n";
+  if (needChoices.rider) msg += "Rider type: " + needChoices.rider + "\n";
+  msg += "\nPlease get in touch.\n\n";
   window.location.href = contactHref(msg);
 }
 
-function openXrayRequest(name) {
-  xrayCurrentHorse = name;
-  document.getElementById("xrayModalTitle").textContent = "Request X-rays for " + name;
-  document.getElementById("xrayEmailLink").href = mailto("X-ray request: " + name, "Hello LRN Equestrian,\n\nI would like to see the X-rays and vetting records for " + name + ".\n\nThank you.");
-  document.getElementById("xrayEmailForm").classList.remove("show");
-  document.getElementById("xrayPhoneForm").classList.remove("show");
-  document.getElementById("xrayOverlay").classList.add("open");
-}
-
-function closeXrayRequest() { document.getElementById("xrayOverlay").classList.remove("open"); }
-
-function toggleXrayForm(type) {
-  const emailForm = document.getElementById("xrayEmailForm");
-  const phoneForm = document.getElementById("xrayPhoneForm");
-  if (type === "email") { phoneForm.classList.remove("show"); emailForm.classList.toggle("show"); }
-  else { emailForm.classList.remove("show"); phoneForm.classList.toggle("show"); }
-}
-
-function submitXrayContact(type) {
-  let contact = "";
-  if (type === "email") {
-    contact = document.getElementById("xrayEmailInput").value.trim();
-    if (!contact || !contact.includes("@")) { alert("Please enter a valid email."); return; }
-  } else {
-    contact = document.getElementById("xrayPhoneInput").value.trim();
-    if (!contact) { alert("Please enter your number."); return; }
-  }
-  const body = "Hello LRN Equestrian,\n\nI would like to request X-rays and vetting records for " + xrayCurrentHorse + ".\n\nMy " + (type === "email" ? "email" : "phone") + ": " + contact + "\n\nThank you.";
-  window.location.href = mailto("X-ray request: " + xrayCurrentHorse, body);
-  closeXrayRequest();
-}
-
 let favorites = [];
-try { favorites = JSON.parse(localStorage.getItem("lrn_favs") || "[]"); } catch(e) { favorites = []; }
+try {
+  favorites = JSON.parse(localStorage.getItem("lrn_favs") || "[]");
+} catch (e) {
+  favorites = [];
+}
 
-function isFav(id) { return favorites.includes(id); }
+function isFav(id) {
+  return favorites.includes(id);
+}
 
 function toggleFav(id) {
   if (favorites.includes(id)) favorites = favorites.filter(f => f !== id);
   else favorites.push(id);
-  try { localStorage.setItem("lrn_favs", JSON.stringify(favorites)); } catch(e) {}
-  if (curMode !== "saved") render();
-  updateSavedBar();
+  try {
+    localStorage.setItem("lrn_favs", JSON.stringify(favorites));
+  } catch (e) {}
+  if (curMode === "sale" || curMode === "shortlist") render();
+  updateShortlistBadge();
 }
 
-function updateSavedBar() {
-  let bar = document.getElementById("savedBar");
-  if (favorites.length === 0) { if (bar) bar.remove(); return; }
-  if (!bar) {
-    bar = document.createElement("div");
-    bar.id = "savedBar";
-    bar.className = "saved-bar";
-    document.body.appendChild(bar);
-  }
-  bar.innerHTML = `<span>${favorites.length} horse${favorites.length>1?"s":""} saved</span>
-    <button class="saved-bar-btn" onclick="showSaved()">View saved</button>
-    ${favorites.length>=2?`<button class="saved-bar-btn" onclick="showCompare()">Compare</button>`:""}`;
-}
-
-function showSaved() {
-  curMode = "saved";
-  document.getElementById("toolbar").style.display = "none";
-  renderSaved();
-}
-
-function renderSaved() {
-  const favHorses = HORSES.filter(h => favorites.includes(h.id));
-  showBanner(`<div style="font-size:13px;color:var(--accent-dark);font-weight:500;">Your ${favHorses.length} saved horse${favHorses.length>1?"s":""}</div><button class="back-btn" onclick="backToSale()">Back to catalogue</button>`, "accent");
-  const grid = document.getElementById("horseGrid");
-  grid.className = curView === "list" ? "list-view" : "grid-view";
-  grid.innerHTML = favHorses.map(h => curView === "list" ? listCardHtml(h) : gridCardHtml(h)).join("");
-}
-
-function showCompare() {
-  const favHorses = HORSES.filter(h => favorites.includes(h.id)).slice(0, 4);
-  document.getElementById("toolbar").style.display = "none";
-  hideBanner();
-  const grid = document.getElementById("horseGrid");
-  grid.className = "";
-  const rows = [
-    ["Photo", favHorses.map(h => h.photos && h.photos.length ? `<img src="${h.photos[0]}" style="width:100%;height:80px;object-fit:cover;border-radius:8px;" alt="">` : `<div class="compare-initials">${h.initials}</div>`)],
-    ["Price", favHorses.map(() => `<span style="font-style:italic;color:var(--muted)">Contact us</span>`)],
-    ["Level", favHorses.map(h => h.level)],
-    ["Age", favHorses.map(h => h.age)],
-    ["Gender", favHorses.map(h => h.gender)],
-    ["Height", favHorses.map(h => h.height)],
-    ["Location", favHorses.map(h => h.location)],
-    ["", favHorses.map(h => `<button onclick="openHorse(${h.id})" style="padding:7px 12px;background:var(--primary);color:white;border:none;border-radius:8px;font-size:12px;cursor:pointer;font-family:inherit;">View</button> <button class="compare-remove" onclick="toggleFav(${h.id});showCompare()">remove</button>`)],
-  ];
-  grid.innerHTML = `
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;padding:14px 20px;background:var(--accent-bg);border:1px solid var(--accent);border-radius:10px;">
-      <div style="font-size:13px;color:var(--accent-dark);font-weight:500;">Comparing ${favHorses.length} horses</div>
-      <button class="back-btn" onclick="showSaved()">Back to saved</button>
-    </div>
-    <div style="overflow-x:auto;">
-      <table class="compare-table">
-        <thead><tr><th class="spec-label-col"></th>${favHorses.map(h=>`<th>${h.name}</th>`).join("")}</tr></thead>
-        <tbody>${rows.map(([label,cells])=>`<tr><td class="compare-row-label">${label}</td>${cells.map(c=>`<td>${c}</td>`).join("")}</tr>`).join("")}</tbody>
-      </table>
-    </div>`;
+function updateShortlistBadge() {
+  const el = document.getElementById("shortlistCount");
+  el.textContent = favorites.length;
+  el.classList.toggle("empty", favorites.length === 0);
 }
 
 initContact();
 render();
-updateSavedBar();
+updateShortlistBadge();
 </script>
 </body>
 </html>
