@@ -38,11 +38,17 @@ const CONTACT = {
 
 Horse listings are defined in the `HORSES`, `SOLD`, and `COMING` arrays in the same file. Replace placeholder entries with real data and add photo URLs to the `photos` array on each horse.
 
-## Deploy to Netlify
+## Deploy to Vercel
 
-1. Push this repository to GitHub.
-2. In [Netlify](https://www.netlify.com/), create a new site from the repo.
-3. Build command: leave empty. Publish directory: `/` (repository root).
-4. Deploy — `index.html` is served as the site entry point.
+This project is deployed on [Vercel](https://vercel.com) as **lrn_rquestrian**.
 
-No build step required.
+- **Production URL:** https://lrnrquestrian.vercel.app
+- **Git integration:** pushes to `main` deploy to production; other branches get preview URLs.
+
+No build step is required — Vercel serves `index.html` from the repository root.
+
+To deploy manually from the CLI:
+
+```bash
+npx vercel --prod
+```
