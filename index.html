@@ -123,14 +123,14 @@ h1{font-family:var(--serif);font-size:52px;font-weight:400;color:var(--primary);
 
 .drawer-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:400;opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s;}
 .drawer-backdrop.open{opacity:1;visibility:visible;}
-.drawer{position:fixed;top:0;right:0;width:100%;max-width:520px;height:100vh;background:white;z-index:401;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);overflow-y:auto;box-shadow:-8px 0 40px rgba(0,0,0,.12);}
+.drawer{position:fixed;top:0;right:0;width:100%;max-width:520px;height:100vh;background:white;z-index:401;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;box-shadow:-8px 0 40px rgba(0,0,0,.12);}
 .drawer.open{transform:translateX(0);}
 .drawer-photo{aspect-ratio:4/5;max-height:340px;background:#2a2a2a;position:relative;overflow:hidden;}
 .drawer-photo img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;}
 .drawer-close{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.92);border:none;cursor:pointer;z-index:5;display:flex;align-items:center;justify-content:center;color:var(--ink);font-size:20px;}
 .heart-btn-profile{position:absolute;top:14px;left:14px;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.92);border:none;cursor:pointer;z-index:5;display:flex;align-items:center;justify-content:center;color:var(--mid);}
 .heart-btn-profile.saved{color:#8b4558;}
-.drawer-body{padding:24px 28px 32px;}
+.drawer-body{padding:24px 28px 100px;overflow-x:hidden;max-width:100%;}
 .drawer-name{font-family:var(--serif);font-size:28px;line-height:1.15;margin-bottom:4px;}
 .drawer-breed{font-size:13px;color:var(--muted);margin-bottom:20px;}
 .drawer-price-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid var(--border);}
@@ -152,9 +152,9 @@ h1{font-family:var(--serif);font-size:52px;font-weight:400;color:var(--primary);
 .vetting-note{font-size:13px;color:var(--mid);line-height:1.6;padding:14px 16px;background:var(--accent-bg);border-radius:var(--r);}
 .vetting-note a{color:var(--primary);font-weight:500;}
 
-.enquiry{background:var(--cream);border-radius:var(--r);padding:18px;}
-.einputs{display:flex;gap:8px;margin-bottom:8px;}
-.einput{flex:1;padding:10px 12px;border:1px solid var(--border);border-radius:6px;font-size:14px;font-family:inherit;outline:none;background:white;}
+.enquiry{background:var(--cream);border-radius:var(--r);padding:18px;max-width:100%;overflow:hidden;box-sizing:border-box;}
+.einputs{display:flex;gap:8px;margin-bottom:8px;flex-wrap:wrap;}
+.einput{flex:1 1 140px;min-width:0;max-width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:6px;font-size:14px;font-family:inherit;outline:none;background:white;box-sizing:border-box;}
 .einput:focus{border-color:var(--primary);}
 .esend{width:100%;padding:11px;background:var(--primary);color:white;border:none;border-radius:6px;font-size:14px;font-weight:500;cursor:pointer;font-family:inherit;}
 .esend:hover{background:#333;}
@@ -173,11 +173,11 @@ h1{font-family:var(--serif);font-size:52px;font-weight:400;color:var(--primary);
 .gallery-dot.active{background:white;width:18px;border-radius:3px;}
 .gallery-counter{position:absolute;top:14px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.5);color:white;padding:3px 10px;border-radius:20px;font-size:11px;z-index:4;}
 
-.need-section{max-width:1200px;margin:0 auto;padding:56px 40px;border-top:1px solid var(--border);}
-.need-inner{display:grid;grid-template-columns:1fr 1.2fr;gap:48px;align-items:start;}
+.need-section{max-width:1200px;margin:0 auto;padding:56px 40px;border-top:1px solid var(--border);overflow-x:hidden;box-sizing:border-box;}
+.need-inner{display:grid;grid-template-columns:1fr 1.2fr;gap:48px;align-items:start;min-width:0;}
 .need-title{font-family:var(--serif);font-size:32px;font-weight:400;color:var(--primary);margin-bottom:10px;line-height:1.2;}
 .need-sub{font-size:14px;color:var(--muted);line-height:1.65;}
-.need-form{background:white;border:1px solid var(--border);border-radius:var(--r);padding:28px;}
+.need-form{background:white;border:1px solid var(--border);border-radius:var(--r);padding:28px;min-width:0;max-width:100%;overflow:hidden;box-sizing:border-box;}
 .need-block{margin-bottom:20px;}
 .need-block:last-of-type{margin-bottom:24px;}
 .need-label{font-size:12px;font-weight:600;color:var(--ink);margin-bottom:10px;text-transform:uppercase;letter-spacing:.06em;}
@@ -231,6 +231,9 @@ h1{font-family:var(--serif);font-size:52px;font-weight:400;color:var(--primary);
   .drawer{max-width:100%;}
   .need-section{padding:40px 16px;}
   .need-form{padding:20px;}
+  .drawer-body{padding:20px 16px 120px;}
+  .einputs{flex-direction:column;}
+  .einput{flex:none;width:100%;}
 }
 </style>
 </head>
@@ -378,7 +381,7 @@ const CONTACT = {
 };
 
 const HORSES = [
-  {id:1,name:"Placeholder Atlas",initials:"PA",breed:"Sire x Dam · Gelding · 2018",level:"1.40m / GP potential",age:"8 y.o.",gender:"Gelding",height:"172 cm",location:"Germany",lease:false,photos:[],tags:["GP potential","Careful jumper","Easy to ride","Strong pedigree"],desc:"Placeholder description for a top-level sport horse. Exceptional scope and rideability, carefully produced and ready for an ambitious rider. Contact us for full details and viewing.",timeline:[{year:2018,event:"Born",detail:"Placeholder pedigree"},{year:2022,event:"Young horse debut",detail:"First competition season"},{year:2024,event:"International level",detail:"Consistent results at 1.35m+"},{year:2026,event:"Available for sale",detail:"Enquire for details"}]},
+  {id:1,name:"Dompero Z",initials:"DZ",breed:"Dominator 2000 Z x Big Star JR KZ · Gelding · 2019",level:"1.35m",age:"7 y.o.",gender:"Gelding",height:"",location:"Romania",lease:false,photos:["images/dompero-z-1.jpg","images/dompero-z-2.jpg","images/dompero-z-3.jpg","images/dompero-z-4.jpg"],tags:["Careful jumper","Scopey","Rideable","International experience","Strong pedigree"],desc:"Dompero Z is a talented 7-year-old Zangersheide gelding by the legendary Dominator 2000 Z and Big Star JR KZ. Combining athleticism, power, and a modern sport horse type, Dompero Z has consistently demonstrated his quality in international competition.<br><br>Having successfully competed up to 1.35m, he is a careful, scopey, and rideable horse with an excellent attitude and a strong desire to perform. His balanced canter, natural technique, and consistent progression make him a reliable partner for ambitious riders looking to compete at a higher level. With his proven competition record and exceptional pedigree, Dompero Z is an exciting prospect for both professionals and amateurs aiming to continue developing in the sport.",timeline:[]},
   {id:2,name:"Placeholder Nova",initials:"PN",breed:"Sire x Dam · Mare · 2019",level:"1.30m+",age:"7 y.o.",gender:"Mare",height:"168 cm",location:"Romania",lease:true,photos:[],tags:["Scopey mare","Lady rider suitable","Clean vetting","Broodmare option"],desc:"Placeholder description for a talented sport mare. Elegant, careful, and very rideable with clear potential for higher classes. Available for purchase or lease.",timeline:[{year:2019,event:"Born",detail:"Placeholder bloodline"},{year:2023,event:"Sport debut",detail:"National and regional circuit"},{year:2025,event:"1.30m level",detail:"Showing consistent form"},{year:2026,event:"Available for sale",detail:"Enquire for details"}]},
   {id:3,name:"Placeholder Echo",initials:"PE",breed:"Sire x Dam · Gelding · 2020",level:"1.20-1.25m",age:"6 y.o.",gender:"Gelding",height:"165 cm",location:"Romania",lease:false,photos:[],tags:["Honest character","Junior suitable","Quick learner","Vetting available"],desc:"Placeholder description for a reliable young gelding. Kind temperament and careful technique make him a strong candidate for a developing rider.",timeline:[{year:2020,event:"Born",detail:"Placeholder pedigree"},{year:2023,event:"Backing",detail:"Started under saddle"},{year:2025,event:"Competition debut",detail:"1.20m classes"},{year:2026,event:"Available for sale",detail:"Enquire for details"}]},
   {id:4,name:"Placeholder Sol",initials:"PS",breed:"Sire x Dam · Mare · 2021",level:"Young Horse",age:"5 y.o.",gender:"Mare",height:"163 cm",location:"Germany",lease:false,photos:[],tags:["Young prospect","Balanced temperament","Amateur friendly","Scope for 1.30m+"],desc:"Placeholder description for a promising young mare. Well-started with excellent basics and a bright future in the sport ring.",timeline:[{year:2021,event:"Born",detail:"Placeholder bloodline"},{year:2024,event:"First season",detail:"Young horse classes"},{year:2026,event:"Available for sale",detail:"Enquire for details"}]},
@@ -476,8 +479,11 @@ function getFiltered() {
 }
 
 function photoEl(h) {
-  if (h.photos && h.photos.length) return `<img src="${h.photos[0]}" alt="${h.name}" loading="lazy">`;
-  return `<span class="photo-initials">${h.initials || h.name.slice(0, 2).toUpperCase()}</span>`;
+  const initials = h.initials || h.name.slice(0, 2).toUpperCase();
+  if (h.photos && h.photos.length) {
+    return `<img src="${h.photos[0]}" alt="${h.name}" loading="lazy" onerror="this.style.display='none';this.parentElement.querySelector('.photo-initials')&&(this.parentElement.querySelector('.photo-initials').style.display='flex')"><span class="photo-initials" style="display:none">${initials}</span>`;
+  }
+  return `<span class="photo-initials">${initials}</span>`;
 }
 
 function statusBadge(h) {
@@ -674,9 +680,6 @@ function openHorse(id) {
   if (!h) return;
 
   const safeName = h.name.replace(/'/g, "");
-  const bgHtml = h.timeline.map(item =>
-    `<li><span class="bg-year">${item.year}</span><span><strong>${item.event}</strong> — ${item.detail}</span></li>`
-  ).join("");
 
   document.getElementById("drawerContent").innerHTML = `
     <div class="drawer-photo">${galleryHtml(h)}
@@ -692,8 +695,7 @@ function openHorse(id) {
       </div>
       <div class="pspecs">${[["Level", h.level], ["Age", h.age], ["Gender", h.gender], ["Location", h.location]].map(([l, v]) => `<div class="psc"><div class="psc-l">${l}</div><div class="psc-v">${v}</div></div>`).join("")}</div>
       <div class="psec"><div class="psec-t">Highlights</div><div class="ptags">${h.tags.map(t => `<div class="ptag">${t}</div>`).join("")}</div></div>
-      <div class="psec"><div class="psec-t">About</div><div class="pdesc"><p>${h.desc}</p></div></div>
-      <div class="psec"><div class="psec-t">Background</div><ul class="bg-list">${bgHtml}</ul></div>
+      <div class="psec"><div class="psec-t">About</div><div class="pdesc">${h.desc.split("<br><br>").map(p => `<p>${p}</p>`).join("")}</div></div>
       <div class="psec">
         <div class="vetting-note">Vetting records available on request. <a href="${mailto("Vetting records: " + safeName, "Hello LRN Equestrian,\n\nI would like to request vetting records for " + safeName + ".\n\nThank you.")}">Email us</a></div>
       </div>
