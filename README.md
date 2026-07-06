@@ -36,7 +36,7 @@ const CONTACT = {
 };
 ```
 
-Horse listings are defined in the `HORSES`, `SOLD`, and `COMING` arrays in the same file. Replace placeholder entries with real data and add photo URLs to the `photos` array on each horse.
+Horse listings are defined in the `HORSES`, `SOLD`, and `COMING` arrays in the same file. Add photo paths to the `photos` array on each horse for sale.
 
 ## Deploy to Vercel
 
