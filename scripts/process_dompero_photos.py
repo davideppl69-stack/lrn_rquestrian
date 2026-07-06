@@ -53,16 +53,36 @@ def convert_one(src: Path, dest: Path):
     print(f"Wrote {dest.relative_to(ROOT)} ({dest.stat().st_size // 1024} KB)")
 
 
+def convert_prefix(prefix: str, count: int, sources: list[Path] | None = None):
+    files = sources if sources is not None else collect_sources()
+    matched = [p for p in files if p.stem.startswith(prefix)]
+    if not matched:
+        matched = files
+    for index, src in enumerate(matched[:count], start=1):
+        convert_one(src, OUTPUT_DIR / f"{prefix}-{index}.jpg")
+    print(f"Converted {min(len(matched), count)} photo(s) for {prefix}.")
+    return min(len(matched), count)
+
+
 def main():
+    import sys
+
+    if len(sys.argv) >= 3:
+        prefix = sys.argv[1]
+        count = int(sys.argv[2])
+        sources = collect_sources()
+        if not sources:
+            print("No source images found. Add photos to images/source/ and run again.")
+            return 1
+        convert_prefix(prefix, count, sources)
+        return 0
+
     sources = collect_sources()
     if not sources:
         print("No source images found. Add photos to images/source/ and run again.")
         return 1
 
-    for index, src in enumerate(sources[:4], start=1):
-        convert_one(src, OUTPUT_DIR / f"dompero-z-{index}.jpg")
-
-    print(f"Converted {min(len(sources), 4)} photo(s).")
+    convert_prefix("dompero-z", 4, sources)
     return 0
 
 
