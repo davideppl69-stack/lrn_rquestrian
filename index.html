@@ -115,6 +115,14 @@ h1{font-family:var(--serif);font-size:52px;font-weight:400;color:var(--primary);
 
 .sold-list,.coming-list{display:flex;flex-direction:column;gap:8px;}
 .sold-row,.coming-row{background:white;border:1px solid var(--border);border-radius:var(--r);padding:18px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.sold-row{cursor:pointer;transition:border-color .15s,box-shadow .15s;}
+.sold-row:hover{border-color:var(--accent);box-shadow:0 4px 20px rgba(0,0,0,.04);}
+.sold-row-main{display:flex;align-items:center;gap:16px;min-width:0;flex:1;}
+.sold-row-thumb{width:72px;height:54px;object-fit:cover;border-radius:6px;flex-shrink:0;background:#1a1a1a;}
+.sold-row-actions{display:flex;align-items:center;gap:14px;flex-shrink:0;}
+.sold-status-badge{display:inline-block;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--accent-dark);font-weight:600;background:var(--accent-bg);padding:4px 10px;border-radius:4px;margin-bottom:8px;}
+.drawer-photo .sold-photo-badge{position:absolute;bottom:14px;left:14px;background:var(--primary);color:white;font-size:10px;font-weight:600;padding:5px 12px;border-radius:4px;letter-spacing:.08em;text-transform:uppercase;z-index:4;}
+.sold-note{font-size:13px;color:var(--mid);line-height:1.6;padding:14px 16px;background:var(--cream);border-radius:var(--r);border:1px solid var(--border);}
 .sold-row-name,.coming-row-name{font-family:var(--serif);font-size:18px;}
 .sold-row-meta,.coming-row-meta{font-size:13px;color:var(--muted);}
 .sold-label{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--accent-dark);font-weight:600;}
@@ -392,8 +400,8 @@ const HORSES = [
 ];
 
 const SOLD = [
-  {id:105,name:"Amodo",initials:"AM",country:"Romania",year:"2026"},
-  {id:106,name:"Ultimate Height Z",initials:"UH",country:"Romania",year:"2026"},
+  {id:105,sold:true,name:"Amodo",initials:"AM",breed:"Avenger Z x Van Halen · WESTF · Mare · 2021",level:"1.15m",age:"5 y.o.",gender:"Mare",height:"",location:"Romania",soldCountry:"Romania",soldYear:"2026",photos:["images/amodo-1.jpg","images/amodo-2.jpg","images/amodo-3.jpg"],tags:["Young prospect","Careful mare","Rideable","Natural technique","Avenger Z bloodlines"],desc:"Amodo is a promising 5-year-old WESTF mare by Avenger Z out of a Van Halen dam, combining modern bloodlines with athleticism and natural talent. She has already shown great potential in the ring, successfully competing up to 1.15m while continuing to develop with confidence and consistency.<br><br>Amodo is an elegant, careful, and rideable mare with excellent balance, a willing attitude, and a natural jumping technique. Her scope, rideability, and quality make her an exciting prospect for ambitious riders looking to produce a talented young horse for the future. With her outstanding pedigree and continued progression, Amodo has all the attributes to develop into a successful international sport horse.",timeline:[]},
+  {id:106,sold:true,name:"Ultimate Height Z",initials:"UH",breed:"Untouchable x Cornet Obolensky · Zangersheide · Stallion · 2020",level:"1.25m",age:"6 y.o.",gender:"Stallion",height:"",location:"Romania",soldCountry:"Romania",soldYear:"2026",photos:["images/ultimate-height-z-1.jpg","images/ultimate-height-z-2.jpg","images/ultimate-height-z-3.jpg"],tags:["WBFSH Lanaken","Careful technique","Scopey","Rideable","Zangersheide bloodlines"],desc:"Ultimate Height Z is a 6-year-old Zangersheide stallion by Untouchable out of a Cornet Obolensky dam, combining two of the most influential jumping bloodlines in modern sport. At just 5 years old, he showcased his exceptional potential by competing at the FEI WBFSH World Breeding Championship for Young Horses in Lanaken, one of the world's most prestigious events for young show jumpers.<br><br>Now successfully competing in 1.25m classes, Ultimate Height Z continues to demonstrate his natural scope, careful technique, athleticism, and outstanding rideability. With his exceptional pedigree, proven international experience from a young age, and continued progression in the sport, he is an exciting prospect for ambitious riders looking for a talented horse with the potential to develop to the highest level.",timeline:[]},
 ];
 
 const COMING = [
@@ -405,6 +413,14 @@ let curLevelFilter = "all";
 let galleryIndex = 0;
 let galleryHorse = null;
 const needChoices = { level: "", rider: "" };
+
+function findHorse(id) {
+  return HORSES.find(x => x.id === id) || SOLD.find(x => x.id === id);
+}
+
+function isSoldHorse(h) {
+  return !!h.sold;
+}
 
 function heartSvg(filled) {
   const fill = filled ? "currentColor" : "none";
@@ -554,12 +570,18 @@ function render() {
     grid.className = "sold-list";
     grid.innerHTML = SOLD.length
       ? SOLD.map(h => `
-      <div class="sold-row">
-        <div>
-          <div class="sold-row-name">${h.name}</div>
-          <div class="sold-row-meta">Placed in ${h.country}${h.year ? " · " + h.year : ""}</div>
+      <div class="sold-row" onclick="openHorse(${h.id})" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openHorse(${h.id})}">
+        <div class="sold-row-main">
+          ${h.photos && h.photos.length ? `<img class="sold-row-thumb" src="${h.photos[0]}" alt="${h.name}" loading="lazy" decoding="async">` : ""}
+          <div>
+            <div class="sold-row-name">${h.name}</div>
+            <div class="sold-row-meta">${h.breed}${h.soldCountry ? " · Placed in " + h.soldCountry : ""}${h.soldYear ? " · " + h.soldYear : ""}</div>
+          </div>
         </div>
-        <div class="sold-label">Sold</div>
+        <div class="sold-row-actions">
+          <span class="view-link">View profile</span>
+          <span class="sold-label">Sold</span>
+        </div>
       </div>`).join("")
       : `<div class="empty-state">No recently sold horses to display.</div>`;
     return;
@@ -672,26 +694,33 @@ function updateGallery() {
 }
 
 function openHorse(id) {
-  const h = HORSES.find(x => x.id === id);
+  const h = findHorse(id);
   if (!h) return;
 
   const safeName = h.name.replace(/'/g, "");
+  const sold = isSoldHorse(h);
+  const soldMeta = sold && h.soldCountry ? `Placed in ${h.soldCountry}${h.soldYear ? " · " + h.soldYear : ""}` : "";
 
   document.getElementById("drawerContent").innerHTML = `
     <div class="drawer-photo">${galleryHtml(h)}
-      <button class="heart-btn-profile${isFav(h.id) ? " saved" : ""}" onclick="toggleFav(${h.id});refreshHeartProfile(${h.id})">${heartSvg(isFav(h.id))}</button>
+      ${sold ? `<div class="sold-photo-badge">Sold</div>` : `<button class="heart-btn-profile${isFav(h.id) ? " saved" : ""}" onclick="toggleFav(${h.id});refreshHeartProfile(${h.id})">${heartSvg(isFav(h.id))}</button>`}
       <button class="drawer-close" onclick="closeProfile()" aria-label="Close">&#215;</button>
     </div>
     <div class="drawer-body">
+      ${sold ? `<div class="sold-status-badge">Sold${soldMeta ? " · " + soldMeta : ""}</div>` : ""}
       <div class="drawer-name">${h.name}</div>
       <div class="drawer-breed">${h.breed}</div>
       <div class="drawer-price-row">
-        <span class="drawer-price-label">Price</span>
-        <span class="drawer-price">Enquire for details</span>
+        <span class="drawer-price-label">${sold ? "Status" : "Price"}</span>
+        <span class="drawer-price">${sold ? "Sold" : "Enquire for details"}</span>
       </div>
       <div class="pspecs">${[["Level", h.level], ["Age", h.age], ["Gender", h.gender], ["Location", h.location]].map(([l, v]) => `<div class="psc"><div class="psc-l">${l}</div><div class="psc-v">${v}</div></div>`).join("")}</div>
       <div class="psec"><div class="psec-t">Highlights</div><div class="ptags">${h.tags.map(t => `<div class="ptag">${t}</div>`).join("")}</div></div>
       <div class="psec"><div class="psec-t">About</div><div class="pdesc">${h.desc.split("<br><br>").map(p => `<p>${p}</p>`).join("")}</div></div>
+      ${sold ? `
+      <div class="psec">
+        <div class="sold-note">This horse has been sold. <a href="${contactHref("Hello LRN Equestrian, I am looking for a horse similar to " + h.name + ". Please contact me.")}">Contact us</a> if you would like help finding a similar partner.</div>
+      </div>` : `
       <div class="psec">
         <div class="vetting-note">Vetting records available on request. <a href="${mailto("Vetting records: " + safeName, "Hello LRN Equestrian,\n\nI would like to request vetting records for " + safeName + ".\n\nThank you.")}">Email us</a></div>
       </div>
@@ -712,7 +741,7 @@ function openHorse(id) {
         <button class="cta-share" onclick="shareHorse('${safeName}')" title="Share" aria-label="Share">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
         </button>
-      </div>
+      </div>`}
     </div>`;
 
   document.getElementById("drawerBackdrop").classList.add("open");
