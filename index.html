@@ -78,9 +78,9 @@ h1{font-family:var(--serif);font-size:52px;font-weight:400;color:var(--primary);
 .editorial-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
 .ecard{background:white;border-radius:var(--r);overflow:hidden;cursor:pointer;transition:transform .2s,box-shadow .2s;border:1px solid var(--border);}
 .ecard:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,.08);}
-.ecard-photo{aspect-ratio:3/2;background:linear-gradient(145deg,#E8E2D8,#D4CBC0);position:relative;overflow:hidden;max-height:320px;}
-.horse-photo{width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;}
-.ecard-photo .horse-photo,.hcard-photo .horse-photo{position:absolute;inset:0;}
+.ecard-photo{aspect-ratio:3/2;background:#1a1a1a;position:relative;overflow:hidden;max-height:320px;}
+.horse-photo{width:100%;height:100%;object-fit:cover;object-position:center center;display:block;}
+.ecard-photo .horse-photo,.hcard-photo .horse-photo{position:absolute;inset:0;width:100%;height:100%;}
 .photo-initials{font-family:var(--serif);font-size:48px;color:rgba(28,28,28,.2);letter-spacing:.06em;user-select:none;position:absolute;inset:0;display:flex;align-items:center;justify-content:center;}
 .ecard-body{padding:20px 22px 22px;}
 .ecard-name{font-family:var(--serif);font-size:22px;margin-bottom:4px;line-height:1.2;}
@@ -94,7 +94,7 @@ h1{font-family:var(--serif);font-size:52px;font-weight:400;color:var(--primary);
 .list-view{display:flex;flex-direction:column;gap:14px;}
 .hcard{background:white;border-radius:var(--r);display:flex;overflow:hidden;border:1px solid var(--border);cursor:pointer;min-height:160px;transition:transform .18s,box-shadow .18s;}
 .hcard:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.07);}
-.hcard-photo{width:240px;min-width:240px;aspect-ratio:3/2;background:linear-gradient(145deg,#E8E2D8,#D4CBC0);position:relative;flex-shrink:0;overflow:hidden;}
+.hcard-photo{width:240px;min-width:240px;aspect-ratio:3/2;background:#1a1a1a;position:relative;flex-shrink:0;overflow:hidden;}
 .hcard-body{flex:1;padding:18px 22px;display:flex;flex-direction:column;justify-content:space-between;}
 .hcard-name{font-family:var(--serif);font-size:20px;margin-bottom:3px;}
 .hcard-breed{font-size:12px;color:var(--muted);}
@@ -133,11 +133,10 @@ h1{font-family:var(--serif);font-size:52px;font-weight:400;color:var(--primary);
 .drawer-backdrop.open{opacity:1;visibility:visible;}
 .drawer{position:fixed;top:0;right:0;width:100%;max-width:520px;height:100vh;background:white;z-index:401;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;box-shadow:-8px 0 40px rgba(0,0,0,.12);}
 .drawer.open{transform:translateX(0);}
-.drawer-photo{width:100%;max-height:min(52vh,520px);min-height:200px;background:#1a1a1a;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;}
-.gallery-stack{position:relative;width:100%;aspect-ratio:3/2;max-height:min(52vh,520px);display:flex;align-items:center;justify-content:center;}
-.gallery-slide{position:absolute;inset:0;width:100%;height:100%;max-height:min(52vh,520px);object-fit:contain;object-position:center;opacity:0;visibility:hidden;transition:opacity .12s ease;z-index:1;}
-.gallery-slide.active{opacity:1;visibility:visible;z-index:2;}
-.drawer-photo .horse-photo{position:relative;width:100%;height:auto;max-height:min(52vh,520px);object-fit:contain;object-position:center;}
+.drawer-photo{width:100%;max-height:min(52vh,520px);min-height:200px;background:#1a1a1a;position:relative;overflow:hidden;}
+.gallery-stack{position:relative;width:100%;aspect-ratio:3/2;max-height:min(52vh,520px);background:#1a1a1a;}
+.gallery-slide{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center;opacity:0;pointer-events:none;transition:opacity .15s ease;z-index:1;}
+.gallery-slide.active{opacity:1;pointer-events:auto;z-index:2;}
 .drawer-close{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.92);border:none;cursor:pointer;z-index:5;display:flex;align-items:center;justify-content:center;color:var(--ink);font-size:20px;}
 .heart-btn-profile{position:absolute;top:14px;left:14px;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.92);border:none;cursor:pointer;z-index:5;display:flex;align-items:center;justify-content:center;color:var(--mid);}
 .heart-btn-profile.saved{color:#8b4558;}
@@ -242,7 +241,7 @@ h1{font-family:var(--serif);font-size:52px;font-weight:400;color:var(--primary);
   .ecard-photo{max-height:260px;}
   .drawer{max-width:100%;}
   .drawer-photo{max-height:45vh;min-height:160px;}
-  .drawer-photo .horse-photo,.gallery-stack,.gallery-slide{max-height:45vh;}
+  .gallery-stack,.gallery-slide{max-height:45vh;}
   .need-section{padding:40px 16px;}
   .need-form{padding:20px;}
   .drawer-body{padding:20px 16px 120px;}
@@ -688,7 +687,7 @@ function galleryHtml(h) {
   galleryHorse = h;
   preloadHorsePhotos(h.photos);
   const multi = h.photos.length > 1;
-  const slides = `<div class="gallery-stack" id="galleryStack">${h.photos.map((src, i) => `<img class="horse-photo gallery-slide${i === 0 ? " active" : ""}" src="${src}" alt="${h.name}" data-gallery-index="${i}" decoding="async" fetchpriority="${i === 0 ? "high" : "low"}">`).join("")}</div>`;
+  const slides = `<div class="gallery-stack" id="galleryStack">${h.photos.map((src, i) => `<img class="gallery-slide${i === 0 ? " active" : ""}" src="${src}" alt="${h.name}" data-gallery-index="${i}" decoding="async" fetchpriority="${i === 0 ? "high" : "low"}">`).join("")}</div>`;
   return `${slides}${multi ? `
     <button class="gallery-arrow left" onclick="event.stopPropagation();galleryNav(-1)">&#8249;</button>
     <button class="gallery-arrow right" onclick="event.stopPropagation();galleryNav(1)">&#8250;</button>
@@ -709,7 +708,9 @@ function galleryGo(i) {
 
 function updateGallery() {
   if (!galleryHorse) return;
-  document.querySelectorAll(".gallery-slide").forEach((img, i) => img.classList.toggle("active", i === galleryIndex));
+  const stack = document.getElementById("galleryStack");
+  if (!stack) return;
+  stack.querySelectorAll(".gallery-slide").forEach((img, i) => img.classList.toggle("active", i === galleryIndex));
   const counter = document.getElementById("galleryCounter");
   if (counter) counter.textContent = `${galleryIndex + 1} / ${galleryHorse.photos.length}`;
   document.querySelectorAll(".gallery-dot").forEach((d, i) => d.classList.toggle("active", i === galleryIndex));
