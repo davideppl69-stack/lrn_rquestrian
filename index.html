@@ -79,7 +79,7 @@ h1{font-family:var(--serif);font-size:52px;font-weight:400;color:var(--primary);
 .ecard{background:white;border-radius:var(--r);overflow:hidden;cursor:pointer;transition:transform .2s,box-shadow .2s;border:1px solid var(--border);min-width:0;}
 .ecard:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,.08);}
 .ecard-photo{position:relative;width:100%;aspect-ratio:3/2;background:#1a1a1a;overflow:hidden;}
-.card-photo{display:block;width:100%;height:100%;object-fit:cover;object-position:center center;}
+.card-photo{display:block;width:100%;height:100%;object-fit:cover;object-position:center 38%;}
 .ecard-photo .card-photo,.hcard-photo .card-photo{position:absolute;inset:0;min-width:100%;min-height:100%;}
 .photo-initials{font-family:var(--serif);font-size:48px;color:rgba(28,28,28,.2);letter-spacing:.06em;user-select:none;position:absolute;inset:0;display:flex;align-items:center;justify-content:center;}
 .ecard-body{padding:20px 22px 22px;}
@@ -133,9 +133,9 @@ h1{font-family:var(--serif);font-size:52px;font-weight:400;color:var(--primary);
 .drawer-backdrop.open{opacity:1;visibility:visible;}
 .drawer{position:fixed;top:0;right:0;width:100%;max-width:520px;height:100vh;background:white;z-index:401;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;box-shadow:-8px 0 40px rgba(0,0,0,.12);}
 .drawer.open{transform:translateX(0);}
-.drawer-photo{width:100%;max-height:min(52vh,520px);min-height:200px;background:#1a1a1a;position:relative;overflow:hidden;}
-.gallery-stack{position:relative;width:100%;aspect-ratio:3/2;max-height:min(52vh,520px);background:#1a1a1a;}
-.gallery-slide{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center;opacity:0;pointer-events:none;transition:opacity .15s ease;z-index:1;}
+.drawer-photo{width:100%;max-height:min(58vh,580px);min-height:220px;background:#1a1a1a;position:relative;overflow:hidden;}
+.gallery-stack{position:relative;width:100%;aspect-ratio:4/3;max-height:min(58vh,580px);min-height:220px;background:#1a1a1a;}
+.gallery-slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;opacity:0;pointer-events:none;transition:opacity .15s ease;z-index:1;}
 .gallery-slide.active{opacity:1;pointer-events:auto;z-index:2;}
 .drawer-close{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.92);border:none;cursor:pointer;z-index:5;display:flex;align-items:center;justify-content:center;color:var(--ink);font-size:20px;}
 .heart-btn-profile{position:absolute;top:14px;left:14px;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.92);border:none;cursor:pointer;z-index:5;display:flex;align-items:center;justify-content:center;color:var(--mid);}
@@ -182,6 +182,20 @@ h1{font-family:var(--serif);font-size:52px;font-weight:400;color:var(--primary);
 .gallery-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.4);cursor:pointer;transition:all .15s;}
 .gallery-dot.active{background:white;width:18px;border-radius:3px;}
 .gallery-counter{position:absolute;top:14px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.5);color:white;padding:3px 10px;border-radius:20px;font-size:11px;z-index:4;}
+.gallery-fullscreen-btn{position:absolute;bottom:12px;right:12px;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.9);border:none;cursor:pointer;z-index:4;display:flex;align-items:center;justify-content:center;color:var(--ink);transition:transform .15s,background .15s;}
+.gallery-fullscreen-btn:hover{transform:scale(1.06);background:white;}
+.gallery-fullscreen-btn svg{width:16px;height:16px;}
+
+.photo-fullscreen{position:fixed;inset:0;background:rgba(0,0,0,.96);z-index:500;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s;}
+.photo-fullscreen.open{opacity:1;visibility:visible;}
+.photo-fullscreen .fs-img{max-width:min(96vw,1200px);max-height:92vh;object-fit:contain;user-select:none;}
+.photo-fullscreen .fs-close{position:absolute;top:16px;right:16px;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.12);border:none;color:white;font-size:28px;line-height:1;cursor:pointer;z-index:2;display:flex;align-items:center;justify-content:center;}
+.photo-fullscreen .fs-close:hover{background:rgba(255,255,255,.22);}
+.photo-fullscreen .fs-nav{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.12);border:none;color:white;font-size:28px;cursor:pointer;z-index:2;display:flex;align-items:center;justify-content:center;}
+.photo-fullscreen .fs-nav:hover{background:rgba(255,255,255,.22);}
+.photo-fullscreen .fs-nav.left{left:16px;}
+.photo-fullscreen .fs-nav.right{right:16px;}
+.photo-fullscreen .fs-counter{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.75);font-size:13px;letter-spacing:.04em;}
 
 .need-section{max-width:1200px;margin:0 auto;padding:56px 40px;border-top:1px solid var(--border);overflow-x:hidden;box-sizing:border-box;}
 .need-inner{display:grid;grid-template-columns:1fr 1.2fr;gap:48px;align-items:start;min-width:0;}
@@ -239,8 +253,11 @@ h1{font-family:var(--serif);font-size:52px;font-weight:400;color:var(--primary);
   .hcard{flex-direction:column;}
   .hcard-photo{width:100%;min-width:unset;aspect-ratio:3/2;height:auto;}
   .drawer{max-width:100%;}
-  .drawer-photo{max-height:45vh;min-height:160px;}
-  .gallery-stack,.gallery-slide{max-height:45vh;}
+  .drawer-photo{max-height:50vh;min-height:180px;}
+  .gallery-stack,.gallery-slide{max-height:50vh;}
+  .photo-fullscreen .fs-nav{width:40px;height:40px;font-size:24px;}
+  .photo-fullscreen .fs-nav.left{left:8px;}
+  .photo-fullscreen .fs-nav.right{right:8px;}
   .need-section{padding:40px 16px;}
   .need-form{padding:20px;}
   .drawer-body{padding:20px 16px 120px;}
@@ -385,6 +402,14 @@ h1{font-family:var(--serif);font-size:52px;font-weight:400;color:var(--primary);
   <div id="drawerContent"></div>
 </div>
 
+<div class="photo-fullscreen" id="photoFullscreen" aria-hidden="true" onclick="if(event.target===this)closePhotoFullscreen()">
+  <button class="fs-close" onclick="closePhotoFullscreen()" aria-label="Close">&#215;</button>
+  <button class="fs-nav left" onclick="event.stopPropagation();fullscreenNav(-1)" aria-label="Previous photo">&#8249;</button>
+  <img class="fs-img" id="fsImg" alt="">
+  <button class="fs-nav right" onclick="event.stopPropagation();fullscreenNav(1)" aria-label="Next photo">&#8250;</button>
+  <div class="fs-counter" id="fsCounter"></div>
+</div>
+
 <script>
 const CONTACT = {
   email: "lrnequestrian@gmail.com",
@@ -393,16 +418,16 @@ const CONTACT = {
 };
 
 const HORSES = [
-  {id:1,name:"Dompero Z",initials:"DZ",breed:"Dominator 2000 Z x Big Star JR KZ · Gelding · 2019",level:"1.35m",age:"7 y.o.",gender:"Gelding",height:"",location:"Romania",lease:false,photos:["images/dompero-z-1.jpg","images/dompero-z-2.jpg","images/dompero-z-3.jpg","images/dompero-z-4.jpg"],tags:["Careful jumper","Scopey","Rideable","International experience","Strong pedigree"],desc:"Dompero Z is a talented 7-year-old Zangersheide gelding by the legendary Dominator 2000 Z and Big Star JR KZ. Combining athleticism, power, and a modern sport horse type, Dompero Z has consistently demonstrated his quality in international competition.<br><br>Having successfully competed up to 1.35m, he is a careful, scopey, and rideable horse with an excellent attitude and a strong desire to perform. His balanced canter, natural technique, and consistent progression make him a reliable partner for ambitious riders looking to compete at a higher level. With his proven competition record and exceptional pedigree, Dompero Z is an exciting prospect for both professionals and amateurs aiming to continue developing in the sport.",timeline:[]},
-  {id:2,name:"Big Easy von der Mittelerde",initials:"BE",breed:"Big Star x Nekton · Gelding · 2017",level:"1.45m",age:"9 y.o.",gender:"Gelding",height:"",location:"Romania",lease:false,photos:["images/big-easy-1.jpg","images/big-easy-2.jpg","images/big-easy-3.jpg","images/big-easy-4.jpg","images/big-easy-5.jpg","images/big-easy-6.jpg","images/big-easy-7.jpg"],tags:["FEI international","Proven record","Careful technique","Rideable","Big Star bloodlines"],desc:"Big Easy von der Mittelerde is an experienced 9-year-old gelding by the legendary Big Star out of a Nekton dam, combining world-class bloodlines with proven international performance. Successfully competing up to 1.45m, he has demonstrated consistency, scope, and reliability at FEI international events.<br><br>Big Easy is a powerful yet rideable horse with an excellent temperament, careful technique, and an outstanding attitude in the ring. His experience, confidence, and willingness to perform make him an ideal partner for ambitious riders looking to compete at a high level. With his exceptional pedigree, proven record, and quality, Big Easy is ready to continue his success in international sport.",timeline:[]},
-  {id:3,name:"For Iris 2",initials:"FI",breed:"For Friendship VDL x Sam R. · Gelding · 2021",level:"1.25m",age:"5 y.o.",gender:"Gelding",height:"",location:"Romania",lease:false,photos:["images/for-iris-2-1.jpg","images/for-iris-2-2.jpg","images/for-iris-2-3.jpg","images/for-iris-2-4.jpg","images/for-iris-2-5.jpg"],tags:["National Champion","Careful technique","Scopey","Rideable","Young prospect"],desc:"For Iris 2 is a talented 5-year-old gelding by For Friendship VDL x Sam R., combining modern bloodlines with exceptional natural ability. As a 4-year-old, he was crowned Romanian National Champion, highlighting his outstanding quality and potential from an early age.<br><br>Now successfully competing up to 1.25m, For Iris 2 continues to impress with his careful technique, athleticism, scope, and excellent rideability. His consistent performances, willing attitude, and natural talent make him an exciting prospect for ambitious riders looking to develop a young horse for the highest levels of the sport. With his proven results, championship title, and exceptional pedigree, For Iris 2 has all the qualities to become a top international show jumper.",timeline:[]},
+  {id:1,name:"Dompero Z",initials:"DZ",breed:"Dominator 2000 Z x Big Star JR KZ · Gelding · 2019",level:"1.35m",age:"7 y.o.",gender:"Gelding",height:"",location:"Romania",lease:false,photos:["images/dompero-z-4.jpg","images/dompero-z-2.jpg","images/dompero-z-1.jpg","images/dompero-z-3.jpg"],tags:["Careful jumper","Scopey","Rideable","International experience","Strong pedigree"],desc:"Dompero Z is a talented 7-year-old Zangersheide gelding by the legendary Dominator 2000 Z and Big Star JR KZ. Combining athleticism, power, and a modern sport horse type, Dompero Z has consistently demonstrated his quality in international competition.<br><br>Having successfully competed up to 1.35m, he is a careful, scopey, and rideable horse with an excellent attitude and a strong desire to perform. His balanced canter, natural technique, and consistent progression make him a reliable partner for ambitious riders looking to compete at a higher level. With his proven competition record and exceptional pedigree, Dompero Z is an exciting prospect for both professionals and amateurs aiming to continue developing in the sport.",timeline:[]},
+  {id:2,name:"Big Easy von der Mittelerde",initials:"BE",breed:"Big Star x Nekton · Gelding · 2017",level:"1.45m",age:"9 y.o.",gender:"Gelding",height:"",location:"Romania",lease:false,photos:["images/big-easy-2.jpg","images/big-easy-4.jpg","images/big-easy-6.jpg","images/big-easy-5.jpg","images/big-easy-3.jpg","images/big-easy-1.jpg","images/big-easy-7.jpg"],tags:["FEI international","Proven record","Careful technique","Rideable","Big Star bloodlines"],desc:"Big Easy von der Mittelerde is an experienced 9-year-old gelding by the legendary Big Star out of a Nekton dam, combining world-class bloodlines with proven international performance. Successfully competing up to 1.45m, he has demonstrated consistency, scope, and reliability at FEI international events.<br><br>Big Easy is a powerful yet rideable horse with an excellent temperament, careful technique, and an outstanding attitude in the ring. His experience, confidence, and willingness to perform make him an ideal partner for ambitious riders looking to compete at a high level. With his exceptional pedigree, proven record, and quality, Big Easy is ready to continue his success in international sport.",timeline:[]},
+  {id:3,name:"For Iris 2",initials:"FI",breed:"For Friendship VDL x Sam R. · Gelding · 2021",level:"1.25m",age:"5 y.o.",gender:"Gelding",height:"",location:"Romania",lease:false,photos:["images/for-iris-2-4.jpg","images/for-iris-2-5.jpg","images/for-iris-2-3.jpg","images/for-iris-2-1.jpg","images/for-iris-2-2.jpg"],tags:["National Champion","Careful technique","Scopey","Rideable","Young prospect"],desc:"For Iris 2 is a talented 5-year-old gelding by For Friendship VDL x Sam R., combining modern bloodlines with exceptional natural ability. As a 4-year-old, he was crowned Romanian National Champion, highlighting his outstanding quality and potential from an early age.<br><br>Now successfully competing up to 1.25m, For Iris 2 continues to impress with his careful technique, athleticism, scope, and excellent rideability. His consistent performances, willing attitude, and natural talent make him an exciting prospect for ambitious riders looking to develop a young horse for the highest levels of the sport. With his proven results, championship title, and exceptional pedigree, For Iris 2 has all the qualities to become a top international show jumper.",timeline:[]},
   {id:4,name:"Uriko's Wizzard",initials:"UW",breed:"Uriko x Amber 119 · Holsteiner · Gelding · 2020",level:"1.30m",age:"6 y.o.",gender:"Gelding",height:"",location:"Romania",lease:false,photos:["images/urikos-wizzard-1.jpg","images/urikos-wizzard-2.jpg","images/urikos-wizzard-3.jpg","images/urikos-wizzard-4.jpg","images/urikos-wizzard-5.jpg","images/urikos-wizzard-6.jpg"],tags:["Vice Champion","Careful technique","Scopey","Rideable","Holsteiner bloodlines"],desc:"Uriko's Wizzard is a promising 6-year-old Holsteiner gelding by Uriko x Amber 119, combining proven Holsteiner bloodlines with exceptional athletic ability. As a 5-year-old, he earned the title of Romanian Vice Champion, demonstrating his quality and consistency among the country's top young horses.<br><br>Now successfully competing up to 1.30m, Uriko's Wizzard impresses with his natural scope, careful technique, and outstanding rideability. Brave, athletic, and eager to perform, he continues to develop with every competition. His proven results, excellent temperament, and strong pedigree make him an ideal partner for ambitious riders looking for a talented horse with the potential to progress to the highest levels of international show jumping.",timeline:[]},
-  {id:5,name:"Diasini 2",initials:"D2",breed:"Diaron x Cassini · Stallion · 2021",level:"1.25m",age:"5 y.o.",gender:"Stallion",height:"",location:"Romania",lease:false,photos:["images/diasini-2-1.jpg","images/diasini-2-2.jpg","images/diasini-2-3.jpg","images/diasini-2-4.jpg","images/diasini-2-5.jpg"],tags:["Young prospect","Careful technique","Scopey","Rideable","Cassini bloodlines"],desc:"Diasini 2 is a talented 5-year-old stallion by Diaron out of a Cassini dam, combining exceptional genetics with all the qualities of a modern sport horse. Successfully competing up to 1.25m, he has consistently demonstrated his talent, athleticism, and potential throughout his young career.<br><br>Diasini 2 stands out for his natural scope, careful technique, excellent rideability, and willingness to perform. Brave, balanced, and easy to ride, he continues to progress with every competition, making him an exciting prospect for ambitious riders looking to develop a young horse for international sport. With his outstanding pedigree and proven ability, Diasini 2 has all the attributes to become a successful top-level show jumper.",timeline:[]},
+  {id:5,name:"Diasini 2",initials:"D2",breed:"Diaron x Cassini · Stallion · 2021",level:"1.25m",age:"5 y.o.",gender:"Stallion",height:"",location:"Romania",lease:false,photos:["images/diasini-2-4.jpg","images/diasini-2-3.jpg","images/diasini-2-5.jpg","images/diasini-2-2.jpg","images/diasini-2-1.jpg"],tags:["Young prospect","Careful technique","Scopey","Rideable","Cassini bloodlines"],desc:"Diasini 2 is a talented 5-year-old stallion by Diaron out of a Cassini dam, combining exceptional genetics with all the qualities of a modern sport horse. Successfully competing up to 1.25m, he has consistently demonstrated his talent, athleticism, and potential throughout his young career.<br><br>Diasini 2 stands out for his natural scope, careful technique, excellent rideability, and willingness to perform. Brave, balanced, and easy to ride, he continues to progress with every competition, making him an exciting prospect for ambitious riders looking to develop a young horse for international sport. With his outstanding pedigree and proven ability, Diasini 2 has all the attributes to become a successful top-level show jumper.",timeline:[]},
 ];
 
 const SOLD = [
-  {id:105,sold:true,name:"Amodo",initials:"AM",breed:"Avenger Z x Van Halen · WESTF · Mare · 2021",level:"1.15m",age:"5 y.o.",gender:"Mare",height:"",location:"Romania",soldCountry:"Romania",soldYear:"2026",photos:["images/amodo-1.jpg","images/amodo-2.jpg","images/amodo-3.jpg"],tags:["Young prospect","Careful mare","Rideable","Natural technique","Avenger Z bloodlines"],desc:"Amodo is a promising 5-year-old WESTF mare by Avenger Z out of a Van Halen dam, combining modern bloodlines with athleticism and natural talent. She has already shown great potential in the ring, successfully competing up to 1.15m while continuing to develop with confidence and consistency.<br><br>Amodo is an elegant, careful, and rideable mare with excellent balance, a willing attitude, and a natural jumping technique. Her scope, rideability, and quality make her an exciting prospect for ambitious riders looking to produce a talented young horse for the future. With her outstanding pedigree and continued progression, Amodo has all the attributes to develop into a successful international sport horse.",timeline:[]},
-  {id:106,sold:true,name:"Ultimate Height Z",initials:"UH",breed:"Untouchable x Cornet Obolensky · Zangersheide · Stallion · 2020",level:"1.25m",age:"6 y.o.",gender:"Stallion",height:"",location:"Romania",soldCountry:"Romania",soldYear:"2026",photos:["images/ultimate-height-z-1.jpg","images/ultimate-height-z-2.jpg","images/ultimate-height-z-3.jpg"],tags:["WBFSH Lanaken","Careful technique","Scopey","Rideable","Zangersheide bloodlines"],desc:"Ultimate Height Z is a 6-year-old Zangersheide stallion by Untouchable out of a Cornet Obolensky dam, combining two of the most influential jumping bloodlines in modern sport. At just 5 years old, he showcased his exceptional potential by competing at the FEI WBFSH World Breeding Championship for Young Horses in Lanaken, one of the world's most prestigious events for young show jumpers.<br><br>Now successfully competing in 1.25m classes, Ultimate Height Z continues to demonstrate his natural scope, careful technique, athleticism, and outstanding rideability. With his exceptional pedigree, proven international experience from a young age, and continued progression in the sport, he is an exciting prospect for ambitious riders looking for a talented horse with the potential to develop to the highest level.",timeline:[]},
+  {id:105,sold:true,name:"Amodo",initials:"AM",breed:"Avenger Z x Van Halen · WESTF · Mare · 2021",level:"1.15m",age:"5 y.o.",gender:"Mare",height:"",location:"Romania",soldCountry:"Romania",soldYear:"2026",photos:["images/amodo-2.jpg","images/amodo-1.jpg","images/amodo-3.jpg"],tags:["Young prospect","Careful mare","Rideable","Natural technique","Avenger Z bloodlines"],desc:"Amodo is a promising 5-year-old WESTF mare by Avenger Z out of a Van Halen dam, combining modern bloodlines with athleticism and natural talent. She has already shown great potential in the ring, successfully competing up to 1.15m while continuing to develop with confidence and consistency.<br><br>Amodo is an elegant, careful, and rideable mare with excellent balance, a willing attitude, and a natural jumping technique. Her scope, rideability, and quality make her an exciting prospect for ambitious riders looking to produce a talented young horse for the future. With her outstanding pedigree and continued progression, Amodo has all the attributes to develop into a successful international sport horse.",timeline:[]},
+  {id:106,sold:true,name:"Ultimate Height Z",initials:"UH",breed:"Untouchable x Cornet Obolensky · Zangersheide · Stallion · 2020",level:"1.25m",age:"6 y.o.",gender:"Stallion",height:"",location:"Romania",soldCountry:"Romania",soldYear:"2026",photos:["images/ultimate-height-z-3.jpg","images/ultimate-height-z-1.jpg","images/ultimate-height-z-2.jpg"],tags:["WBFSH Lanaken","Careful technique","Scopey","Rideable","Zangersheide bloodlines"],desc:"Ultimate Height Z is a 6-year-old Zangersheide stallion by Untouchable out of a Cornet Obolensky dam, combining two of the most influential jumping bloodlines in modern sport. At just 5 years old, he showcased his exceptional potential by competing at the FEI WBFSH World Breeding Championship for Young Horses in Lanaken, one of the world's most prestigious events for young show jumpers.<br><br>Now successfully competing in 1.25m classes, Ultimate Height Z continues to demonstrate his natural scope, careful technique, athleticism, and outstanding rideability. With his exceptional pedigree, proven international experience from a young age, and continued progression in the sport, he is an exciting prospect for ambitious riders looking for a talented horse with the potential to develop to the highest level.",timeline:[]},
 ];
 
 const COMING = [
@@ -687,7 +712,8 @@ function galleryHtml(h) {
   preloadHorsePhotos(h.photos);
   const multi = h.photos.length > 1;
   const slides = `<div class="gallery-stack" id="galleryStack">${h.photos.map((src, i) => `<img class="gallery-slide${i === 0 ? " active" : ""}" src="${src}" alt="${h.name}" data-gallery-index="${i}" decoding="async" fetchpriority="${i === 0 ? "high" : "low"}">`).join("")}</div>`;
-  return `${slides}${multi ? `
+  const fsBtn = `<button class="gallery-fullscreen-btn" onclick="event.stopPropagation();openPhotoFullscreen()" aria-label="View full screen" title="Full screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg></button>`;
+  return `${slides}${fsBtn}${multi ? `
     <button class="gallery-arrow left" onclick="event.stopPropagation();galleryNav(-1)">&#8249;</button>
     <button class="gallery-arrow right" onclick="event.stopPropagation();galleryNav(1)">&#8250;</button>
     <div class="gallery-counter" id="galleryCounter">1 / ${h.photos.length}</div>
@@ -713,6 +739,50 @@ function updateGallery() {
   const counter = document.getElementById("galleryCounter");
   if (counter) counter.textContent = `${galleryIndex + 1} / ${galleryHorse.photos.length}`;
   document.querySelectorAll(".gallery-dot").forEach((d, i) => d.classList.toggle("active", i === galleryIndex));
+  updateFullscreenImage();
+}
+
+function openPhotoFullscreen() {
+  if (!galleryHorse || !galleryHorse.photos.length) return;
+  const overlay = document.getElementById("photoFullscreen");
+  if (!overlay) return;
+  updateFullscreenImage();
+  overlay.classList.add("open");
+  overlay.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+}
+
+function closePhotoFullscreen() {
+  const overlay = document.getElementById("photoFullscreen");
+  if (!overlay) return;
+  overlay.classList.remove("open");
+  overlay.setAttribute("aria-hidden", "true");
+  if (document.getElementById("profileDrawer").classList.contains("open")) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "";
+  }
+}
+
+function updateFullscreenImage() {
+  if (!galleryHorse) return;
+  const img = document.getElementById("fsImg");
+  const counter = document.getElementById("fsCounter");
+  const multi = galleryHorse.photos.length > 1;
+  if (img) {
+    img.src = galleryHorse.photos[galleryIndex];
+    img.alt = galleryHorse.name;
+  }
+  if (counter) counter.textContent = multi ? `${galleryIndex + 1} / ${galleryHorse.photos.length}` : "";
+  document.querySelectorAll(".photo-fullscreen .fs-nav").forEach(btn => {
+    btn.style.display = multi ? "flex" : "none";
+  });
+}
+
+function fullscreenNav(dir) {
+  if (!galleryHorse || galleryHorse.photos.length < 2) return;
+  galleryIndex = (galleryIndex + dir + galleryHorse.photos.length) % galleryHorse.photos.length;
+  updateGallery();
 }
 
 function openHorse(id) {
@@ -781,6 +851,7 @@ function refreshHeartProfile(id) {
 }
 
 function closeProfile() {
+  closePhotoFullscreen();
   document.getElementById("drawerBackdrop").classList.remove("open");
   document.getElementById("profileDrawer").classList.remove("open");
   document.body.style.overflow = "";
@@ -848,7 +919,15 @@ function updateShortlistBadge() {
 }
 
 document.addEventListener("keydown", e => {
-  if (e.key === "Escape") closeProfile();
+  const fsOpen = document.getElementById("photoFullscreen").classList.contains("open");
+  if (e.key === "Escape") {
+    if (fsOpen) closePhotoFullscreen();
+    else closeProfile();
+    return;
+  }
+  if (!fsOpen || !galleryHorse) return;
+  if (e.key === "ArrowLeft") fullscreenNav(-1);
+  if (e.key === "ArrowRight") fullscreenNav(1);
 });
 
 initContact();
