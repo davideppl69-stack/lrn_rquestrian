@@ -712,12 +712,15 @@ function galleryHtml(h) {
   preloadHorsePhotos(h.photos);
   const multi = h.photos.length > 1;
   const slides = `<div class="gallery-stack" id="galleryStack">${h.photos.map((src, i) => `<img class="gallery-slide${i === 0 ? " active" : ""}" src="${src}" alt="${h.name}" data-gallery-index="${i}" decoding="async" fetchpriority="${i === 0 ? "high" : "low"}">`).join("")}</div>`;
-  const fsBtn = `<button class="gallery-fullscreen-btn" onclick="event.stopPropagation();openPhotoFullscreen()" aria-label="View full screen" title="Full screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg></button>`;
-  return `${slides}${fsBtn}${multi ? `
-    <button class="gallery-arrow left" onclick="event.stopPropagation();galleryNav(-1)">&#8249;</button>
-    <button class="gallery-arrow right" onclick="event.stopPropagation();galleryNav(1)">&#8250;</button>
+  const fsBtn = `<button type="button" class="gallery-fullscreen-btn" onclick="event.stopPropagation();openPhotoFullscreen()" aria-label="View full screen" title="Full screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg></button>`;
+  let html = slides + fsBtn;
+  if (multi) {
+    html += `<button type="button" class="gallery-arrow left" onclick="event.stopPropagation();galleryNav(-1)">&#8249;</button>
+    <button type="button" class="gallery-arrow right" onclick="event.stopPropagation();galleryNav(1)">&#8250;</button>
     <div class="gallery-counter" id="galleryCounter">1 / ${h.photos.length}</div>
-    <div class="gallery-dots" id="galleryDots">${h.photos.map((_, i) => `<div class="gallery-dot${i === 0 ? " active" : ""}" onclick="event.stopPropagation();galleryGo(${i})"></div>`).join("")}</div>` : ""}`;
+    <div class="gallery-dots" id="galleryDots">${h.photos.map((_, i) => `<div class="gallery-dot${i === 0 ? " active" : ""}" onclick="event.stopPropagation();galleryGo(${i})"></div>`).join("")}</div>`;
+  }
+  return html;
 }
 
 function galleryNav(dir) {
@@ -919,7 +922,8 @@ function updateShortlistBadge() {
 }
 
 document.addEventListener("keydown", e => {
-  const fsOpen = document.getElementById("photoFullscreen").classList.contains("open");
+  const overlay = document.getElementById("photoFullscreen");
+  const fsOpen = overlay && overlay.classList.contains("open");
   if (e.key === "Escape") {
     if (fsOpen) closePhotoFullscreen();
     else closeProfile();
