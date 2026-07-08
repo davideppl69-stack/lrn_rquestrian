@@ -134,6 +134,9 @@ h1{font-family:var(--serif);font-size:52px;font-weight:400;color:var(--primary);
 .drawer{position:fixed;top:0;right:0;width:100%;max-width:520px;height:100vh;background:white;z-index:401;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;box-shadow:-8px 0 40px rgba(0,0,0,.12);}
 .drawer.open{transform:translateX(0);}
 .drawer-photo{width:100%;max-height:min(52vh,520px);min-height:200px;background:#1a1a1a;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+.gallery-stack{position:relative;width:100%;aspect-ratio:3/2;max-height:min(52vh,520px);display:flex;align-items:center;justify-content:center;}
+.gallery-slide{position:absolute;inset:0;width:100%;height:100%;max-height:min(52vh,520px);object-fit:contain;object-position:center;opacity:0;visibility:hidden;transition:opacity .12s ease;z-index:1;}
+.gallery-slide.active{opacity:1;visibility:visible;z-index:2;}
 .drawer-photo .horse-photo{position:relative;width:100%;height:auto;max-height:min(52vh,520px);object-fit:contain;object-position:center;}
 .drawer-close{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.92);border:none;cursor:pointer;z-index:5;display:flex;align-items:center;justify-content:center;color:var(--ink);font-size:20px;}
 .heart-btn-profile{position:absolute;top:14px;left:14px;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.92);border:none;cursor:pointer;z-index:5;display:flex;align-items:center;justify-content:center;color:var(--mid);}
@@ -239,7 +242,7 @@ h1{font-family:var(--serif);font-size:52px;font-weight:400;color:var(--primary);
   .ecard-photo{max-height:260px;}
   .drawer{max-width:100%;}
   .drawer-photo{max-height:45vh;min-height:160px;}
-  .drawer-photo .horse-photo{max-height:45vh;}
+  .drawer-photo .horse-photo,.gallery-stack,.gallery-slide{max-height:45vh;}
   .need-section{padding:40px 16px;}
   .need-form{padding:20px;}
   .drawer-body{padding:20px 16px 120px;}
@@ -412,6 +415,24 @@ let curMode = "sale";
 let curLevelFilter = "all";
 let galleryIndex = 0;
 let galleryHorse = null;
+const photoPreloadCache = new Map();
+
+function preloadHorsePhotos(photos) {
+  if (!photos || !photos.length) return;
+  photos.forEach(src => {
+    if (photoPreloadCache.has(src)) return;
+    const img = new Image();
+    img.decoding = "async";
+    img.src = src;
+    photoPreloadCache.set(src, img);
+  });
+}
+
+function warmCataloguePhotos() {
+  [...HORSES, ...SOLD, ...COMING].forEach(h => {
+    if (h.photos && h.photos.length) preloadHorsePhotos(h.photos);
+  });
+}
 const needChoices = { level: "", rider: "" };
 
 function findHorse(id) {
@@ -505,7 +526,7 @@ function heartBtn(id) {
 }
 
 function editorialCardHtml(h) {
-  return `<div class="ecard" onclick="openHorse(${h.id})">
+  return `<div class="ecard" onclick="openHorse(${h.id})" onmouseenter="preloadHorsePhotos(${JSON.stringify(h.photos || [])})">
     <div class="ecard-photo">${photoEl(h)}${statusBadge(h)}${heartBtn(h.id)}</div>
     <div class="ecard-body">
       <div class="ecard-name">${h.name}</div>
@@ -520,7 +541,7 @@ function editorialCardHtml(h) {
 }
 
 function listCardHtml(h) {
-  return `<div class="hcard" onclick="openHorse(${h.id})">
+  return `<div class="hcard" onclick="openHorse(${h.id})" onmouseenter="preloadHorsePhotos(${JSON.stringify(h.photos || [])})">
     <div class="hcard-photo">${photoEl(h)}${statusBadge(h)}${heartBtn(h.id)}</div>
     <div class="hcard-body">
       <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;">
@@ -570,7 +591,7 @@ function render() {
     grid.className = "sold-list";
     grid.innerHTML = SOLD.length
       ? SOLD.map(h => `
-      <div class="sold-row" onclick="openHorse(${h.id})" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openHorse(${h.id})}">
+      <div class="sold-row" onclick="openHorse(${h.id})" onmouseenter="preloadHorsePhotos(${JSON.stringify(h.photos || [])})" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openHorse(${h.id})}">
         <div class="sold-row-main">
           ${h.photos && h.photos.length ? `<img class="sold-row-thumb" src="${h.photos[0]}" alt="${h.name}" loading="lazy" decoding="async">` : ""}
           <div>
@@ -665,8 +686,10 @@ function galleryHtml(h) {
   }
   galleryIndex = 0;
   galleryHorse = h;
+  preloadHorsePhotos(h.photos);
   const multi = h.photos.length > 1;
-  return `<img class="horse-photo" src="${h.photos[0]}" alt="${h.name}" id="galleryImg" decoding="async">${multi ? `
+  const slides = `<div class="gallery-stack" id="galleryStack">${h.photos.map((src, i) => `<img class="horse-photo gallery-slide${i === 0 ? " active" : ""}" src="${src}" alt="${h.name}" data-gallery-index="${i}" decoding="async" fetchpriority="${i === 0 ? "high" : "low"}">`).join("")}</div>`;
+  return `${slides}${multi ? `
     <button class="gallery-arrow left" onclick="event.stopPropagation();galleryNav(-1)">&#8249;</button>
     <button class="gallery-arrow right" onclick="event.stopPropagation();galleryNav(1)">&#8250;</button>
     <div class="gallery-counter" id="galleryCounter">1 / ${h.photos.length}</div>
@@ -686,8 +709,7 @@ function galleryGo(i) {
 
 function updateGallery() {
   if (!galleryHorse) return;
-  const img = document.getElementById("galleryImg");
-  if (img) img.src = galleryHorse.photos[galleryIndex];
+  document.querySelectorAll(".gallery-slide").forEach((img, i) => img.classList.toggle("active", i === galleryIndex));
   const counter = document.getElementById("galleryCounter");
   if (counter) counter.textContent = `${galleryIndex + 1} / ${galleryHorse.photos.length}`;
   document.querySelectorAll(".gallery-dot").forEach((d, i) => d.classList.toggle("active", i === galleryIndex));
@@ -696,6 +718,7 @@ function updateGallery() {
 function openHorse(id) {
   const h = findHorse(id);
   if (!h) return;
+  if (h.photos && h.photos.length) preloadHorsePhotos(h.photos);
 
   const safeName = h.name.replace(/'/g, "");
   const sold = isSoldHorse(h);
