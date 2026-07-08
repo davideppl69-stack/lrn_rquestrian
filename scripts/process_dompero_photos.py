@@ -58,16 +58,24 @@ def convert_prefix(prefix: str, count: int, sources: list[Path] | None = None):
     matched = [p for p in files if p.stem.startswith(prefix)]
     if not matched:
         matched = files
+    matched = sorted(matched, key=lambda p: p.name.lower())
     for index, src in enumerate(matched[:count], start=1):
         convert_one(src, OUTPUT_DIR / f"{prefix}-{index}.jpg")
     print(f"Converted {min(len(matched), count)} photo(s) for {prefix}.")
     return min(len(matched), count)
 
 
+def convert_explicit(prefix: str, source_files: list[Path]):
+    for index, src in enumerate(source_files, start=1):
+        convert_one(src, OUTPUT_DIR / f"{prefix}-{index}.jpg")
+    print(f"Converted {len(source_files)} photo(s) for {prefix}.")
+    return len(source_files)
+
+
 def main():
     import sys
 
-    if len(sys.argv) >= 3:
+    if len(sys.argv) >= 3 and sys.argv[1] != "--files":
         prefix = sys.argv[1]
         count = int(sys.argv[2])
         sources = collect_sources()
@@ -75,6 +83,18 @@ def main():
             print("No source images found. Add photos to images/source/ and run again.")
             return 1
         convert_prefix(prefix, count, sources)
+        return 0
+
+    if len(sys.argv) >= 4 and sys.argv[1] == "--files":
+        prefix = sys.argv[2]
+        source_paths = [Path(p) for p in sys.argv[3:]]
+        missing = [p for p in source_paths if not p.is_file()]
+        if missing:
+            print("Missing source files:")
+            for path in missing:
+                print(f"  - {path}")
+            return 1
+        convert_explicit(prefix, source_paths)
         return 0
 
     sources = collect_sources()
