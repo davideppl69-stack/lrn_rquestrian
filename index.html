@@ -440,8 +440,8 @@ const HORSES = [
   {id:5,name:"Diasini 2",initials:"D2",breed:"Diaron x Cassini · Stallion · 2021",level:"1.25m",age:"5 y.o.",gender:"Stallion",height:"",location:"Romania",lease:false,young:true,photos:["images/diasini-2-4.jpg","images/diasini-2-3.jpg","images/diasini-2-5.jpg","images/diasini-2-2.jpg","images/diasini-2-1.jpg"],tags:["Young prospect","Careful technique","Scopey","Rideable","Cassini bloodlines"],desc:"Diasini 2 is a talented 5 year old stallion by Diaron out of a Cassini dam, combining exceptional genetics with all the qualities of a modern sport horse. Successfully competing up to 1.25m, he has consistently demonstrated his talent, athleticism, and potential throughout his young career.<br><br>Diasini 2 stands out for his natural scope, careful technique, excellent rideability, and willingness to perform. Brave, balanced, and easy to ride, he continues to progress with every competition, making him an exciting prospect for ambitious riders looking to develop a young horse for international sport. With his outstanding pedigree and proven ability, Diasini 2 has all the attributes to become a successful top level show jumper.",timeline:[]},
   {id:6,name:"Chicago",initials:"CH",breed:"Chacfly x Conthargos · Gelding · 2018",level:"1.40m",age:"8 y.o.",gender:"Gelding",height:"",location:"Romania",lease:false,photos:["images/chicago-2.jpg","images/chicago-4.jpg","images/chicago-1.jpg","images/chicago-3.jpg","images/chicago-5.jpg","images/chicago-6.jpg"],tags:["Proven record","Careful technique","Scopey","Rideable","Chacfly bloodlines"],desc:"Chicago is an impressive 8 year old gelding by Chacfly out of a Conthargos dam, combining two of the most successful modern jumping bloodlines. Successfully competing up to 1.40m, he has proven himself as a talented and reliable sport horse with the quality to perform at international level.<br><br>Chicago stands out for his exceptional scope, careful technique, athleticism, and outstanding rideability. Brave, powerful, and naturally balanced, he offers an excellent feeling in the ring and continues to demonstrate consistency in competition. With his proven performance, exceptional pedigree, and competitive mindset, Chicago is an outstanding partner for ambitious riders looking for a horse capable of progressing to the highest levels of show jumping.",timeline:[]},
   {id:7,name:"Hector",initials:"HE",breed:"Orlando · Stallion",level:"1.45m",age:"",gender:"Stallion",height:"",location:"Romania",lease:false,photos:["images/hector-2.jpg","images/hector-1.jpg","images/hector-3.jpg"],tags:["FEI international","Proven record","Careful technique","Scopey","Orlando bloodlines"],desc:"Hector is an outstanding stallion by the renowned Orlando, combining proven international bloodlines with exceptional talent and athleticism. Successfully competing up to 1.45m, he has established himself as a consistent and competitive sport horse with the quality to perform at a high level.<br><br>Hector impresses with his natural scope, careful technique, powerful canter, and outstanding rideability. Brave, intelligent, and always willing to perform, he combines the athleticism and mindset required for top-level competition. His proven international experience, exceptional pedigree, and consistent performances make him an exciting partner for ambitious riders looking for a horse ready to continue progressing in the highest levels of the sport.",timeline:[]},
-  {id:8,name:"Crunch 28",initials:"C28",breed:"Quick Nick · Gelding · 2022",level:"1.00m",age:"4 y.o.",gender:"Gelding",height:"",location:"Romania",lease:false,young:true,photos:[],tags:["Young prospect","Careful technique","Rideable","Willing attitude","Quick Nick bloodlines"],desc:"Crunch 28 is a promising 4 year old gelding by Quick Nick, showing all the qualities of a modern young sport horse. Successfully competing up to 1.00m, he demonstrates excellent rideability, careful technique, and a willing attitude.<br><br>With his quality, athleticism, and strong pedigree, Crunch 28 is an exciting prospect with excellent potential for future development in international show jumping.",timeline:[]},
-  {id:9,name:"Zunday",initials:"ZU",breed:"Zinedine x Heartbreaker · Gelding · 2021",level:"1.15m",age:"5 y.o.",gender:"Gelding",height:"",location:"Romania",lease:false,young:true,photos:[],tags:["Young prospect","Careful technique","Scopey","Rideable","Heartbreaker bloodlines"],desc:"Zunday is a talented 5 year old gelding by Zinedine out of a Heartbreaker dam. Successfully competing up to 1.15m, he combines careful technique, scope, and excellent rideability with a willing attitude.<br><br>His outstanding pedigree and natural ability make him a promising young horse with excellent potential for future international sport.",timeline:[]},
+  {id:8,name:"Crunch 28",initials:"C28",breed:"Quick Nick · Gelding · 2022",level:"1.00m",age:"4 y.o.",gender:"Gelding",height:"",location:"Romania",lease:false,young:true,photos:["images/crunch-28-1.jpg","images/crunch-28-2.jpg"],tags:["Young prospect","Careful technique","Rideable","Willing attitude","Quick Nick bloodlines"],desc:"Crunch 28 is a promising 4 year old gelding by Quick Nick, showing all the qualities of a modern young sport horse. Successfully competing up to 1.00m, he demonstrates excellent rideability, careful technique, and a willing attitude.<br><br>With his quality, athleticism, and strong pedigree, Crunch 28 is an exciting prospect with excellent potential for future development in international show jumping.",timeline:[]},
+  {id:9,name:"Zunday",initials:"ZU",breed:"Zinedine x Heartbreaker · Gelding · 2021",level:"1.15m",age:"5 y.o.",gender:"Gelding",height:"",location:"Romania",lease:false,young:true,photos:["images/zunday-1.jpg","images/zunday-3.jpg","images/zunday-2.jpg"],tags:["Young prospect","Careful technique","Scopey","Rideable","Heartbreaker bloodlines"],desc:"Zunday is a talented 5 year old gelding by Zinedine out of a Heartbreaker dam. Successfully competing up to 1.15m, he combines careful technique, scope, and excellent rideability with a willing attitude.<br><br>His outstanding pedigree and natural ability make him a promising young horse with excellent potential for future international sport.",timeline:[]},
 ];
 
 const SOLD = [
@@ -450,8 +450,8 @@ const SOLD = [
 ];
 
 const COMING = [
-  {id:201,name:"Yda",breed:"4 y.o. · Arriving soon"},
-  {id:202,name:"Diariette PS Z",breed:"4 y.o. · Arriving soon"},
+  {id:201,name:"Yda",breed:"4 y.o. · Arriving soon",photos:["images/yda-1.jpg","images/yda-2.jpg"]},
+  {id:202,name:"Diariette PS Z",breed:"4 y.o. · Arriving soon",photos:["images/diariette-ps-z-1.jpg","images/diariette-ps-z-3.jpg","images/diariette-ps-z-2.jpg"]},
 ];
 
 let curView = "grid";
@@ -657,9 +657,12 @@ function render() {
     grid.innerHTML = COMING.length
       ? COMING.map(h => `
       <div class="coming-row">
-        <div>
-          <div class="coming-row-name">${h.name}</div>
-          <div class="coming-row-meta">${h.breed}</div>
+        <div class="sold-row-main">
+          ${h.photos && h.photos.length ? `<img class="sold-row-thumb" src="${h.photos[0]}" alt="${h.name}" loading="lazy" decoding="async">` : ""}
+          <div>
+            <div class="coming-row-name">${h.name}</div>
+            <div class="coming-row-meta">${h.breed}</div>
+          </div>
         </div>
         <div class="coming-row-actions">
           <span class="sold-label">Arriving soon</span>
@@ -956,8 +959,8 @@ document.addEventListener("keydown", e => {
 });
 
 const HERO_SCROLL_PHOTOS = [
-  ["images/dompero-z-4.jpg", "images/big-easy-2.jpg", "images/for-iris-2-4.jpg", "images/urikos-wizzard-1.jpg", "images/diasini-2-4.jpg", "images/chicago-2.jpg", "images/hector-2.jpg", "images/big-easy-6.jpg", "images/dompero-z-2.jpg", "images/for-iris-2-5.jpg"],
-  ["images/big-easy-4.jpg", "images/urikos-wizzard-2.jpg", "images/diasini-2-3.jpg", "images/chicago-4.jpg", "images/hector-1.jpg", "images/for-iris-2-3.jpg", "images/dompero-z-1.jpg", "images/big-easy-5.jpg", "images/ultimate-height-z-3.jpg", "images/amodo-2.jpg"]
+  ["images/dompero-z-4.jpg", "images/big-easy-2.jpg", "images/for-iris-2-4.jpg", "images/urikos-wizzard-1.jpg", "images/diasini-2-4.jpg", "images/chicago-2.jpg", "images/hector-2.jpg", "images/crunch-28-1.jpg", "images/zunday-1.jpg", "images/for-iris-2-5.jpg"],
+  ["images/big-easy-4.jpg", "images/urikos-wizzard-2.jpg", "images/diasini-2-3.jpg", "images/chicago-4.jpg", "images/hector-1.jpg", "images/yda-1.jpg", "images/diariette-ps-z-1.jpg", "images/big-easy-5.jpg", "images/ultimate-height-z-3.jpg", "images/amodo-2.jpg"]
 ];
 
 function initHeroScroll() {
