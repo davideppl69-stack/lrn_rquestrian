@@ -136,10 +136,13 @@ h1{font-family:var(--serif);font-size:52px;font-weight:400;color:var(--primary);
 .sold-status-badge{display:inline-block;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--accent-dark);font-weight:600;background:var(--accent-bg);padding:4px 10px;border-radius:4px;margin-bottom:8px;}
 .drawer-photo .sold-photo-badge{position:absolute;bottom:14px;left:14px;background:var(--primary);color:white;font-size:10px;font-weight:600;padding:5px 12px;border-radius:4px;letter-spacing:.08em;text-transform:uppercase;z-index:4;}
 .sold-note{font-size:13px;color:var(--mid);line-height:1.6;padding:14px 16px;background:var(--cream);border-radius:var(--r);border:1px solid var(--border);}
-.sold-row-name,.coming-row-name{font-family:var(--serif);font-size:18px;}
-.sold-row-meta,.coming-row-meta{font-size:13px;color:var(--muted);}
+.sold-row-name,.coming-row-name{font-family:var(--serif);font-size:18px;line-height:1.2;}
+.sold-row-meta,.coming-row-meta{font-size:13px;color:var(--muted);line-height:1.45;}
+.coming-row-text{min-width:0;flex:1;}
+.coming-row-pedigree{font-size:13px;color:var(--muted);line-height:1.45;margin-top:4px;}
 .sold-label{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--accent-dark);font-weight:600;}
-.coming-row-actions{display:flex;align-items:center;gap:12px;}
+.arriving-badge{background:var(--accent-bg);padding:4px 10px;border-radius:4px;white-space:nowrap;}
+.coming-row-actions{display:flex;align-items:center;gap:12px;flex-shrink:0;}
 .interest-link{font-size:12px;color:var(--primary);font-weight:500;text-decoration:none;border-bottom:1px solid var(--accent);cursor:pointer;background:none;border-top:none;border-left:none;border-right:none;font-family:inherit;padding:0;}
 
 .drawer-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:400;opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s;}
@@ -279,6 +282,9 @@ h1{font-family:var(--serif);font-size:52px;font-weight:400;color:var(--primary);
   .drawer-body{padding:20px 16px 120px;}
   .einputs{flex-direction:column;}
   .einput{flex:none;width:100%;}
+  .coming-row{flex-direction:column;align-items:stretch;gap:14px;padding:16px;}
+  .coming-row .sold-row-main{align-items:flex-start;width:100%;}
+  .coming-row-actions{width:100%;justify-content:space-between;padding-top:12px;border-top:1px solid var(--border);}
 }
 </style>
 </head>
@@ -450,8 +456,8 @@ const SOLD = [
 ];
 
 const COMING = [
-  {id:201,name:"Yda",breed:"4 y.o. mare · by Conthargos · Arriving soon",photos:["images/yda-1.jpg","images/yda-2.jpg"]},
-  {id:202,name:"Diarette PS Z",breed:"4 y.o. mare · Diaron OLD x Tailormade Chaloubet · Arriving soon",photos:["images/diariette-ps-z-1.jpg","images/diariette-ps-z-3.jpg","images/diariette-ps-z-2.jpg"]},
+  {id:201,name:"Yda",summary:"4 y.o. mare",pedigree:"by Conthargos",photos:["images/yda-1.jpg","images/yda-2.jpg"]},
+  {id:202,name:"Diarette PS Z",summary:"4 y.o. mare",pedigree:"Diaron OLD x Tailormade Chaloubet",photos:["images/diariette-ps-z-1.jpg","images/diariette-ps-z-3.jpg","images/diariette-ps-z-2.jpg"]},
 ];
 
 let curView = "grid";
@@ -659,13 +665,14 @@ function render() {
       <div class="coming-row">
         <div class="sold-row-main">
           ${h.photos && h.photos.length ? `<img class="sold-row-thumb" src="${h.photos[0]}" alt="${h.name}" loading="lazy" decoding="async">` : ""}
-          <div>
+          <div class="coming-row-text">
             <div class="coming-row-name">${h.name}</div>
-            <div class="coming-row-meta">${h.breed}</div>
+            <div class="coming-row-meta">${h.summary || h.breed || ""}</div>
+            ${h.pedigree ? `<div class="coming-row-pedigree">${h.pedigree}</div>` : ""}
           </div>
         </div>
         <div class="coming-row-actions">
-          <span class="sold-label">Arriving soon</span>
+          <span class="sold-label arriving-badge">Arriving soon</span>
           <button class="interest-link" onclick="registerInterest('${h.name.replace(/'/g, "")}')">Register interest</button>
         </div>
       </div>`).join("")
