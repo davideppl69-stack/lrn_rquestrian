@@ -456,6 +456,7 @@ const SOLD = [
 ];
 
 const COMING = [
+  {id:203,name:"Candy de Noa",summary:"2 y.o. stallion",pedigree:"Candy de Nantuel x Landor S",photos:["images/candy-de-noa-1.jpg"],photoPosition:"center 48%"},
   {id:201,name:"Yda",summary:"4 y.o. mare",pedigree:"by Conthargos",photos:["images/yda-1.jpg","images/yda-2.jpg"]},
   {id:202,name:"Diarette PS Z",summary:"4 y.o. mare",pedigree:"Diaron OLD x Tailormade Chaloubet",photos:["images/diariette-ps-z-1.jpg","images/diariette-ps-z-3.jpg","images/diariette-ps-z-2.jpg"]},
 ];
@@ -664,7 +665,7 @@ function render() {
       ? COMING.map(h => `
       <div class="coming-row">
         <div class="sold-row-main">
-          ${h.photos && h.photos.length ? `<img class="sold-row-thumb" src="${h.photos[0]}" alt="${h.name}" loading="lazy" decoding="async">` : ""}
+          ${h.photos && h.photos.length ? `<img class="sold-row-thumb" src="${h.photos[0]}" alt="${h.name}" loading="lazy" decoding="async"${h.photoPosition ? ` style="object-position:${h.photoPosition}"` : ""}>` : ""}
           <div class="coming-row-text">
             <div class="coming-row-name">${h.name}</div>
             <div class="coming-row-meta">${h.summary || h.breed || ""}</div>
